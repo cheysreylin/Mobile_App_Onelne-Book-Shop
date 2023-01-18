@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:projecttesting/EventsPage/eventPage.dart';
+import 'package:projecttesting/home_screen/Components/Author/author.dart';
 import 'package:projecttesting/login_page/login_screen.dart';
 import 'package:projecttesting/utils/constants.dart';
-import 'home_screen/HomeScreen.dart';
 import 'loading_screen/LoadingScreen.dart';
+import 'home_screen/HomePage.dart';
 import 'login_page/login_screen.dart';
 
 void main(){
@@ -18,8 +20,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/' : (context) => HomeScreen(),
-        // '/HomeScreen' : (context) => HomeScreen(),
+        // '/' : (context) => Author(),
+        // '/' : (context) => LoadingScreen(),
+        // '/' : (context) => HomeScreen(),
+        // '/' : (context) => EventPage(),
+        '/HomeScreen' : (context) => HomeScreen(),
         // '/login_screen' :(context) => LoginScreen(),
       },
     );
