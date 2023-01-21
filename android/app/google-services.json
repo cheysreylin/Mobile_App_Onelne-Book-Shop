@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1022595729356",
+    "project_id": "flutter-authentication-8ef50",
+    "storage_bucket": "flutter-authentication-8ef50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022595729356:android:cbce7efe1b4ee6efd3bf69",
+        "android_client_info": {
+          "package_name": "com.example.mobile_app_online_book_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022595729356-tr9h1189m2o7qksqprjlbrg9qp1j9hn6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ_O3o59ikK4HtRpwCL1D0hVGcv56KAYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022595729356-tr9h1189m2o7qksqprjlbrg9qp1j9hn6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

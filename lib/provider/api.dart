@@ -12,8 +12,7 @@ class Books{
 }
 
 final List<Books> book_list = [
-  Books("assets/homescreen/book1.jpg", "The Book Of GOD", "Walter Wangerin", "A feat of imagination and faith. -Philib yancey award-wining author...", "Price ${14}"),
-  Books("assets/homescreen/book1.jpg", "The Book Of GOD", "Walter Wangerin", "A feat of imagination and faith. -Philib yancey award-wining author...", "Price ${14}"),
+  Books("assets/homescreen/book1.jpg", "The Book Of GOD", "Walter Wangerin", "A feat of imagination and faith. -Philib yancey award-wining author hello blog welcome to kirirom institute of technology, hellllllllllllll nooooooooooo", "Price ${14}"),
   Books("assets/homescreen/book1.jpg", "The Book Of GOD", "Walter Wangerin", "A feat of imagination and faith. -Philib yancey award-wining author...", "Price ${14}"),
   Books("assets/homescreen/book1.jpg", "The Book Of GOD", "Walter Wangerin", "A feat of imagination and faith. -Philib yancey award-wining author...", "Price ${14}"),
   Books("assets/homescreen/book1.jpg", "The Book Of GOD", "Walter Wangerin", "A feat of imagination and faith. -Philib yancey award-wining author...", "Price ${14}"),
