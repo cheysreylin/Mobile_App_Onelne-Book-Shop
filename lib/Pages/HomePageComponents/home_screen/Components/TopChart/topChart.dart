@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:projecttesting/provider/api.dart';
+import 'package:projecttesting/model/api.dart';
 
 class TopChart extends StatelessWidget {
   const TopChart({super.key});
@@ -42,87 +43,89 @@ class TopChart extends StatelessWidget {
                     return Container(
                       margin: EdgeInsets.all(10),
                       child: ClipRRect(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 250,
-                              margin: EdgeInsets.all(10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                                child: Container(
-                                  child: Image.asset(model.image),
+                        child: Card(
+                          elevation: 6,
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 250,
+                                margin: EdgeInsets.all(10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                                  child: Container(
+                                    child: Image.asset(model.image),
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 170,
-                              // height: 190,
-                              child: Container(
-                                // color: Colors.amber,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text(
-                                              model.book_title,
-                                              style: new TextStyle(
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
+                              SizedBox(
+                                width: 170,
+                                // height: 190,
+                                child: Container(
+                                  // color: Colors.amber,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text(
+                                                model.book_title,
+                                                style: new TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  ),
                                                 ),
+                                            ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 2,),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child: 
+                                              Text(model.author_name,
+                                              style: new TextStyle(
+                                                    fontSize: 13.5,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
                                               ),
                                           ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 2,),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child: 
-                                            Text(model.author_name,
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                      Container(
+                                        child:
+                                          Text(
+                                            model.description, 
+                                            softWrap: true,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                             style: new TextStyle(
-                                                  fontSize: 13.5,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                            ),
-                                        ),
-                                      ],
-                                    ), 
-                                    SizedBox(height: 2,),
-                                    Container(
-                                      child:
-                                        Text(
-                                          model.description, 
-                                          //"Swimming brings back a nightmare that Rebecca Fishburn would much rather forget. So when the gym teacher announces plans to take the class swimming for the next two weeks, Reb can think of nothing else…and she is terrified! ",
-                                          softWrap: true,
-                                          maxLines: 13,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: new TextStyle(
-                                                  fontSize: 12.0,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                        ),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text((model.price).toString()),
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                                    fontSize: 12.0,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
+                                          ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text((model.price).toString()),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-
-                          ],
+                        
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -158,87 +161,90 @@ class TopChart extends StatelessWidget {
                     return Container(
                       margin: EdgeInsets.all(10),
                       child: ClipRRect(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 250,
-                              margin: EdgeInsets.all(10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                                child: Container(
-                                  child: Image.asset(model.image),
+                        child: Card(
+                          elevation: 5,
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 250,
+                                margin: EdgeInsets.all(10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                                  child: Container(
+                                    child: Image.asset(model.image),
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 170,
-                              // height: 190,
-                              child: Container(
-                                // color: Colors.amber,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text(
-                                              model.book_title,
-                                              style: new TextStyle(
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
+                              SizedBox(
+                                width: 170,
+                                // height: 190,
+                                child: Container(
+                                  // color: Colors.amber,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text(
+                                                model.book_title,
+                                                style: new TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  ),
                                                 ),
+                                            ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 2,),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child: 
+                                              Text(model.author_name,
+                                              style: new TextStyle(
+                                                    fontSize: 13.5,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
                                               ),
                                           ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 2,),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child: 
-                                            Text(model.author_name,
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                      Container(
+                                        child:
+                                          Text(
+                                            model.description, 
+                                            //"Swimming brings back a nightmare that Rebecca Fishburn would much rather forget. So when the gym teacher announces plans to take the class swimming for the next two weeks, Reb can think of nothing else…and she is terrified! ",
+                                            softWrap: true,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                             style: new TextStyle(
-                                                  fontSize: 13.5,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                            ),
-                                        ),
-                                      ],
-                                    ), 
-                                    SizedBox(height: 2,),
-                                    Container(
-                                      child:
-                                        Text(
-                                          model.description, 
-                                          //"Swimming brings back a nightmare that Rebecca Fishburn would much rather forget. So when the gym teacher announces plans to take the class swimming for the next two weeks, Reb can think of nothing else…and she is terrified! ",
-                                          softWrap: true,
-                                          maxLines: 13,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: new TextStyle(
-                                                  fontSize: 12.0,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                        ),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text((model.price).toString()),
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                                    fontSize: 12.0,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
+                                          ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text((model.price).toString()),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-
-                          ],
+                        
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -274,87 +280,90 @@ class TopChart extends StatelessWidget {
                     return Container(
                       margin: EdgeInsets.all(10),
                       child: ClipRRect(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 250,
-                              margin: EdgeInsets.all(10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                                child: Container(
-                                  child: Image.asset(model.image),
+                        child: Card(
+                          elevation: 5,
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 250,
+                                margin: EdgeInsets.all(10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                                  child: Container(
+                                    child: Image.asset(model.image),
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 170,
-                              // height: 190,
-                              child: Container(
-                                // color: Colors.amber,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text(
-                                              model.book_title,
-                                              style: new TextStyle(
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
+                              SizedBox(
+                                width: 170,
+                                // height: 190,
+                                child: Container(
+                                  // color: Colors.amber,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text(
+                                                model.book_title,
+                                                style: new TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  ),
                                                 ),
+                                            ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 2,),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child: 
+                                              Text(model.author_name,
+                                              style: new TextStyle(
+                                                    fontSize: 13.5,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
                                               ),
                                           ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 2,),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child: 
-                                            Text(model.author_name,
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                      Container(
+                                        child:
+                                          Text(
+                                            model.description, 
+                                            //"Swimming brings back a nightmare that Rebecca Fishburn would much rather forget. So when the gym teacher announces plans to take the class swimming for the next two weeks, Reb can think of nothing else…and she is terrified! ",
+                                            softWrap: true,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                             style: new TextStyle(
-                                                  fontSize: 13.5,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                            ),
-                                        ),
-                                      ],
-                                    ), 
-                                    SizedBox(height: 2,),
-                                    Container(
-                                      child:
-                                        Text(
-                                          model.description, 
-                                          //"Swimming brings back a nightmare that Rebecca Fishburn would much rather forget. So when the gym teacher announces plans to take the class swimming for the next two weeks, Reb can think of nothing else…and she is terrified! ",
-                                          softWrap: true,
-                                          maxLines: 13,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: new TextStyle(
-                                                  fontSize: 12.0,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                        ),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text((model.price).toString()),
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                                    fontSize: 12.0,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
+                                          ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text((model.price).toString()),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-
-                          ],
+                        
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -390,87 +399,90 @@ class TopChart extends StatelessWidget {
                     return Container(
                       margin: EdgeInsets.all(10),
                       child: ClipRRect(
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 250,
-                              margin: EdgeInsets.all(10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(5)),
-                                child: Container(
-                                  child: Image.asset(model.image),
+                        child: Card(
+                          elevation: 6,
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 250,
+                                margin: EdgeInsets.all(10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                                  child: Container(
+                                    child: Image.asset(model.image),
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 170,
-                              // height: 190,
-                              child: Container(
-                                // color: Colors.amber,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text(
-                                              model.book_title,
-                                              style: new TextStyle(
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
+                              SizedBox(
+                                width: 170,
+                                // height: 190,
+                                child: Container(
+                                  // color: Colors.amber,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text(
+                                                model.book_title,
+                                                style: new TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  ),
                                                 ),
+                                            ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 2,),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child: 
+                                              Text(model.author_name,
+                                              style: new TextStyle(
+                                                    fontSize: 13.5,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
                                               ),
                                           ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 2,),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child: 
-                                            Text(model.author_name,
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                      Container(
+                                        child:
+                                          Text(
+                                            model.description, 
+                                            //"Swimming brings back a nightmare that Rebecca Fishburn would much rather forget. So when the gym teacher announces plans to take the class swimming for the next two weeks, Reb can think of nothing else…and she is terrified! ",
+                                            softWrap: true,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
                                             style: new TextStyle(
-                                                  fontSize: 13.5,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                            ),
-                                        ),
-                                      ],
-                                    ), 
-                                    SizedBox(height: 2,),
-                                    Container(
-                                      child:
-                                        Text(
-                                          model.description, 
-                                          //"Swimming brings back a nightmare that Rebecca Fishburn would much rather forget. So when the gym teacher announces plans to take the class swimming for the next two weeks, Reb can think of nothing else…and she is terrified! ",
-                                          softWrap: true,
-                                          maxLines: 13,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: new TextStyle(
-                                                  fontSize: 12.0,
-                                                  color: Color.fromARGB(255, 66, 66, 66)
-                                                )
-                                        ),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          child:
-                                            Text((model.price).toString()),
-                                        ),
-                                      ],
-                                    )
-                                  ],
+                                                    fontSize: 12.0,
+                                                    color: Color.fromARGB(255, 66, 66, 66)
+                                                  )
+                                          ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            child:
+                                              Text((model.price).toString()),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-
-                          ],
+                        
+                            ],
+                          ),
                         ),
                       ),
                     );

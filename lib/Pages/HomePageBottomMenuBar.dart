@@ -6,7 +6,7 @@ import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/A
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/forYou.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/TopChart/topChart.dart';
 import 'package:projecttesting/Pages/Profiles/profile.dart';
-import 'package:projecttesting/provider/api.dart';
+import 'package:projecttesting/model/api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,12 +18,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
     int _selectedIndex = 0;
     final ScrollController _HomePageController = ScrollController();
+    TextEditingController _searchController = TextEditingController();
 
     void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+
+    @override
+    void dispose() {
+     _searchController.dispose();
+      super.dispose();
+    }
+
     static const List<Widget> _widgetOptions = <Widget>[
     HomeMenuBar(),
     EventPage(),
@@ -33,6 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final text = MediaQuery.of(context).platformBrightness == Brightness.dark
+      ? "DarkTheme"
+      : "LightTheme";
+
     return SafeArea(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -48,11 +61,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Color.fromARGB(255, 238, 238, 238), borderRadius: BorderRadius.circular(5),
               ),
               child: TextField(
+                controller: _searchController,
                 decoration: InputDecoration(
                   iconColor: Colors.grey,
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: IconButton(
-                    onPressed: (){}, 
+                    onPressed: (){
+                      this.setState(() {
+                        _searchController.clear();
+                      });
+                    }, 
                     icon: Icon(Icons.clear),
                   ),
                   hintText: 'Search...',
@@ -62,14 +80,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             actions: [
               IconButton(onPressed: (){
-
+                
               }, 
-              icon: Icon(Icons.camera), color: Colors.grey,)
+              icon: Icon(Icons.light_mode), color: Colors.grey,)
             ],
           ),
           body: Center(
               child: _widgetOptions.elementAt(_selectedIndex),
-              
           ),
 
           bottomNavigationBar: BottomNavigationBar(

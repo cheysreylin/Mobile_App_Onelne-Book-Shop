@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:projecttesting/provider/api.dart';
+import 'package:projecttesting/model/api.dart';
 
 class Author extends StatelessWidget {
   const Author({super.key});

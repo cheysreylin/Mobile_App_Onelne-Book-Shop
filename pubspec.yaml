@@ -41,6 +41,7 @@ dependencies:
   firebase_auth: ^4.2.5
   # cloud_firestore: ^4.3.1
   provider: ^6.0.5
+  shared_preferences: ^2.0.17
 
 dev_dependencies:
   flutter_test:
@@ -68,7 +69,11 @@ flutter:
   assets:
     - assets/homescreen/book1.jpg
     - assets/homescreen/book2.jpg
+    - assets/homescreen/book3.jpg
+    - assets/homescreen/book4.jpg
+    - assets/homescreen/book5.jpg
     - assets/homescreen/book_icon.png
+    - assets/star/star.png
     - assets/events_bookImg/harry-potter.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see

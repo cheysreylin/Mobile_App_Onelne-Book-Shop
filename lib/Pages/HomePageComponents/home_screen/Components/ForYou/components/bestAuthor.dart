@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projecttesting/provider/api.dart';
+import 'package:projecttesting/model/api.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -25,9 +25,9 @@ class BestAuthor extends StatelessWidget {
                         child: Text("Best Author",
                         textAlign: TextAlign.end,
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 54, 54, 54)
+                          color: Color.fromARGB(255, 66, 66, 66)
                         ),
                         ),
                       ),
@@ -41,8 +41,8 @@ class BestAuthor extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: Container(
-                            width: 160.0,
-                            height: 160.0,
+                            width: 130.0,
+                            height: 130.0,
                             decoration: new BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: new DecorationImage
@@ -79,12 +79,12 @@ class BestAuthor extends StatelessWidget {
                       Text(
                         'So please, oh please, we beg, we pray, go throw your TV set away, and in its place you can install a lovely bookshelf on the wall.', 
                         softWrap: true,
-                        maxLines: 13,
+                        maxLines: 20,
                         overflow: TextOverflow.ellipsis,
                         style: new TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
-                          color: Color.fromARGB(255, 66, 66, 66)
+                          //fontWeight: FontWeight.bold,
+                          fontSize: 15.0,
+                          color: Color.fromARGB(255, 63, 63, 63)
                         )
                       ),
                   ),
@@ -103,7 +103,7 @@ class BestAuthor extends StatelessWidget {
                       child: Text("Their Works",
                       textAlign: TextAlign.end,
                       style: TextStyle(
-                        fontSize: 23,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         color: Color.fromARGB(255, 70, 70, 70)
                       ),

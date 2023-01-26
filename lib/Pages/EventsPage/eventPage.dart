@@ -8,7 +8,7 @@ class EventPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        height: 1500,
+        height: 1600,
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -38,7 +38,7 @@ class EventPage extends StatelessWidget {
                       child: Column(
                         children: [
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing"),
-                          Text("4/25/2021"),
+                          //Text("4/25/2021"),
                           Image.asset("assets/events_bookImg/harry-potter.jpg", height: 240, width: 360,),
                           Text("Location : Phnom Penh City of Cambodia, Aeon mall 2, second floor"),
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing..."),
@@ -46,6 +46,7 @@ class EventPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 6,),
                   Card(
                     elevation: 10,
                     child: Padding(
@@ -53,7 +54,39 @@ class EventPage extends StatelessWidget {
                       child: Column(
                         children: [
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing"),
-                          Text("4/25/2021"),
+                          //Text("4/25/2021"),
+                          Image.asset("assets/events_bookImg/harry-potter.jpg", height: 240, width: 360,),
+                          Text("Location : Phnom Penh City of Cambodia, Aeon mall 2, second floor"),
+                          Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing..."),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 6,),
+                  Card(
+                    elevation: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        children: [
+                          Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing"),
+                          //Text("4/25/2021"),
+                          Image.asset("assets/events_bookImg/harry-potter.jpg", height: 240, width: 360,),
+                          Text("Location : Phnom Penh City of Cambodia, Aeon mall 2, second floor"),
+                          Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing..."),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 6,),
+                  Card(
+                    elevation: 10,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        children: [
+                          Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing"),
+                          //Text("4/25/2021"),
                           Image.asset("assets/events_bookImg/harry-potter.jpg", height: 240, width: 360,),
                           Text("Location : Phnom Penh City of Cambodia, Aeon mall 2, second floor"),
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing..."),
