@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:projecttesting/DetailPage/detail.dart';
+import 'package:projecttesting/Pages/DetailPage/detail.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bestAuthor.dart';
 import 'package:projecttesting/model/api.dart'
 ;
@@ -53,15 +53,15 @@ class ForYou extends StatelessWidget {
                             Navigator.of(context).push(MaterialPageRoute(builder: ((context) => BookDetail(model))));
                           }),
                           child: Card(
-                            color: Colors.grey[300],
+                            color: Color.fromARGB(255, 255, 255, 255),
                             elevation: 5,
                             shadowColor: Color.fromARGB(255, 63, 63, 63),
                             //shadowColor: Color.fromARGB(255, 197, 197, 197),
                             child: Column(
                               children: [
                                 Container(
-                                  height: 170,
-                                  width: 130,
+                                  height: 180,
+                                  width: 120,
                                   margin: EdgeInsets.all(10),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.all(Radius.circular(5)),
@@ -111,19 +111,19 @@ class ForYou extends StatelessWidget {
                                           ],
                                         ), 
                                         SizedBox(height: 2,),
-                                        Container(
-                                          child:
-                                            Text(
-                                              model.description, 
-                                              softWrap: true,
-                                              maxLines: 1,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: new TextStyle(
-                                                      fontSize: 12.0,
-                                                      color: Color.fromARGB(255, 66, 66, 66)
-                                                    )
-                                            ),
-                                        ),
+                                        // Container(
+                                        //   child:
+                                        //     Text(
+                                        //       model.description, 
+                                        //       softWrap: true,
+                                        //       maxLines: 1,
+                                        //       overflow: TextOverflow.ellipsis,
+                                        //       style: new TextStyle(
+                                        //               fontSize: 12.0,
+                                        //               color: Color.fromARGB(255, 66, 66, 66)
+                                        //             )
+                                        //     ),
+                                        // ),
                                         // Row(
                                         //   mainAxisAlignment: MainAxisAlignment.start,
                                         //   children: [

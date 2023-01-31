@@ -135,7 +135,7 @@ class BestAuthor extends StatelessWidget {
                                           Container(
                                             // padding: EdgeInsets.fromLTRB(left, top, right, bottom),
                                             height: 160,
-                                            width: 165,
+                                            width: 125,
                                             child: ClipRRect(
                                             borderRadius: BorderRadius.all(Radius.circular(10)),
                                             child: Container(
@@ -143,30 +143,30 @@ class BestAuthor extends StatelessWidget {
                                             ),),
                                           ),
                                           SizedBox(height: 10,),
-                                          SizedBox(
-                                            // width: 120,
-                                            // height: 120,
-                                            child: Column(
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  children: [
-                                                    Container(
-                                                      child: 
-                                                        Text(model.author_name,
-                                                        style: new TextStyle(
-                                                              fontSize: 15.5,
-                                                              fontWeight: FontWeight.bold,
-                                                              color: Color.fromARGB(255, 66, 66, 66)
-                                                            )
-                                                        ),
-                                                    ),
-                                                  ],
-                                                ), 
-                                                SizedBox(height: 2,),
-                                              ],
-                                            ),
-                                          ),
+                                          // SizedBox(
+                                          //   // width: 120,
+                                          //   // height: 120,
+                                          //   child: Column(
+                                          //     children: [
+                                          //       Row(
+                                          //         mainAxisAlignment: MainAxisAlignment.start,
+                                          //         children: [
+                                          //           Container(
+                                          //             child: 
+                                          //               Text(model.author_name,
+                                          //               style: new TextStyle(
+                                          //                     fontSize: 15.5,
+                                          //                     fontWeight: FontWeight.bold,
+                                          //                     color: Color.fromARGB(255, 66, 66, 66)
+                                          //                   )
+                                          //               ),
+                                          //           ),
+                                          //         ],
+                                          //       ), 
+                                          //       SizedBox(height: 2,),
+                                          //     ],
+                                          //   ),
+                                          // ),
                                           
                                         ],
                                       ),

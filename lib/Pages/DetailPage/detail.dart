@@ -1,21 +1,28 @@
+
 import 'package:flutter/material.dart';
+import 'package:projecttesting/Pages/DetailPage/provider/favouriteProvider.dart';
 import 'package:projecttesting/model/api.dart';
+import 'package:provider/provider.dart';
 
 
 class BookDetail extends StatelessWidget {
-  //const BookDetail({super.key});
+  // const BookDetail({super.key});
   final Books book;
   const BookDetail(this.book,{Key? key}) : super(key: key);
-
+  
   @override
   Widget build(BuildContext context) {
+    
+    // final provider = Provider.of(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 29, 29, 29)), 
-          onPressed: (() {
-          }),
+          onPressed: () {
+            Navigator.pushNamed(context, "/");
+          },
         ),
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.more_vert, color: Color.fromARGB(255, 29, 29, 29))),
@@ -189,12 +196,7 @@ class BookDetail extends StatelessWidget {
                   ),
                   
                   SizedBox(
-                    width: 90,
-                    height: 50.0, 
-                    child: ElevatedButton(
-                      onPressed: (){}, 
-                      child: Icon(Icons.favorite_border_outlined)
-                    ),
+                    child: AddToFavourite(),
                   )
                 ],
               )
@@ -206,5 +208,19 @@ class BookDetail extends StatelessWidget {
   }
 }
 
+// class AddFavourite extends StatefulWidget {
+//   const AddFavourite({super.key});
+
+//   @override
+//   State<AddFavourite> createState() => _AddFavouriteState();
+// }
+
+// class _AddFavouriteState extends State<AddFavourite> {
+//   bool _isFavourite = false;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
 
 

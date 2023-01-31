@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:projecttesting/DetailPage/detail.dart';
+import 'package:projecttesting/Pages/DetailPage/detail.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/Author/author.dart';
 import 'package:projecttesting/Pages/RegisterPage/registerScreen.dart';
@@ -21,22 +21,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      // theme: ThemeData.light(),
+      // darkTheme: ThemeData.dark(),
 
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/' : (context) => HomeScreen(),
         //'/' : (context) => LoadingScreen(),
-        // '/' : (context) => LogIn(),
-        //'/' : (context) => Register(),
+        //'/' : (context) => LogIn(),
+      //  '/' : (context) => Register(),
         // '/' : (context) => EventPage(),
-        // '/HomeScreen' : (context) => HomeScreen(),
+        '/Homescreen' : (context) => HomeScreen(),
         // '/login_screen' :(context) => LogIn(),
-        // '/Register_screen' :(context) => Register(),
+        //'/Register_screen' :(context) => Register(),
         // '/ResetPasswordScreen' :(context) => ResetPassword(),
-        //'/detailScreen' :(context) => BookDetail(),
+        // '/detailScreen' :(context) => BookDetail(),
       },
     );
   }

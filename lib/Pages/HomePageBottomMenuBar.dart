@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/Cards/card.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
@@ -5,7 +6,7 @@ import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/Author/author.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/forYou.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/TopChart/topChart.dart';
-import 'package:projecttesting/Pages/Profiles/profile.dart';
+import 'package:projecttesting/Pages/ProfilesError/profile.dart';
 import 'package:projecttesting/model/api.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeMenuBar(),
     EventPage(),
     CardPage(),
-    UserProfile(),
+    // UserProfile()
   ];
 
   @override

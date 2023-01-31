@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart'; 
-
+import 'package:email_validator/email_validator.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -45,6 +45,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     TextEditingController _passwordTextController = TextEditingController();
     TextEditingController _emailTextController = TextEditingController();
     TextEditingController _userNameTextController = TextEditingController();
+    
 
     static Future<User?> createUserWithEmailAndPassword({
     required String Username, required email, required password , required BuildContext contect}) async{
@@ -65,6 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       }
 
 
+  String _errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -119,27 +121,36 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 child: Column(
                   children: [
                     Container(
-                      child: TextField(
+                      child: TextFormField(
                         controller: _userNameTextController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.verified_user),
+                          prefixIcon: Icon(Icons.person_add_alt_1_rounded),
                           label: Text('Username')
                         ),
+                        
                       ),
                     ), 
                     SizedBox(height: 20,),
                     Container(
-                      child: TextField(
+                      child: TextFormField(
                         controller: _emailTextController,
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.email),
-                          label: Text('Email')
+                          prefixIcon: Icon(Icons.verified_user),
+                          labelText: 'Email'
                         ),
+                        onChanged: (val){
+                          validateEmail(val);
+                        },
                       ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Text(_errorMessage, style: TextStyle(color: Colors.red), ),
                     ), 
-                    SizedBox(height: 20,),
+                    // SizedBox(height: 20,),
                     Container(
                       child: TextField(
                         controller: _passwordTextController,
@@ -219,13 +230,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     // )
                   ],
                 ),
-              )
-        
+              ),
             ],
             ),
         ),
       ),
     );
+  }
+  // To validate  the email 
+  void validateEmail(String val) {
+    if(val.isEmpty){
+  setState(() {
+    _errorMessage = "Email can not be empty";
+  });
+    }else if(!EmailValidator.validate(val, true)){
+      setState(() {
+        _errorMessage = "Invalid Email Address";
+      });
+    }else{
+      setState(() {
+        _errorMessage = "";
+      });
+    }
   }
 }
 
