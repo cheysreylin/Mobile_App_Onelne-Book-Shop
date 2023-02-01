@@ -1,16 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'package:projecttesting/Pages/DetailPage/detail.dart';
-import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
-import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/Author/author.dart';
-import 'package:projecttesting/Pages/RegisterPage/registerScreen.dart';
-import 'package:projecttesting/Pages/ResetPassword/resetPassword.dart';
-import 'package:projecttesting/Pages/loginPage/login_screen.dart';
-import 'package:projecttesting/model/api.dart';
-import 'package:projecttesting/utils/constants.dart';
-// import 'Pages/login_page/loading_screen/LoadingScreen.dart';
+import 'package:projecttesting/settings/settings_controller.dart';
 import 'Pages/HomePageBottomMenuBar.dart';
-import 'Pages/loginPage/login_screen.dart';
 
 void main(){
   runApp(MyApp());

@@ -1,15 +1,14 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:projecttesting/Pages/DetailPage/detail.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bestAuthor.dart';
+import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/movieHeader.dart';
 import 'package:projecttesting/model/api.dart';
+import '../../../../../../settings/settings_controller.dart';
 
 class ForYou extends StatelessWidget {
-  const ForYou({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +16,11 @@ class ForYou extends StatelessWidget {
     return Container(
       child: SingleChildScrollView(
         child: Container(
-          height: 2000,
-          // color: Colors.grey,
+          height: 2022,
           child: Column(
             children: [
               // Movie Header 
-              Container(
-                child: MovieHeader(),
-              ),
+              MovieHeader(),
               // Recommendation book 
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,

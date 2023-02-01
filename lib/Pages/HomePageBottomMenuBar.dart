@@ -1,13 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/Cards/card.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
-import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/Author/author.dart';
-import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/forYou.dart';
-import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/TopChart/topChart.dart';
-import 'package:projecttesting/Pages/ProfilesError/profile.dart';
-import 'package:projecttesting/model/api.dart';
+import 'package:projecttesting/settings/settings_controller.dart';
+
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,9 +15,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
     int _selectedIndex = 0;
     final ScrollController _HomePageController = ScrollController();
     TextEditingController _searchController = TextEditingController();
+
+    static const List<Widget> _widgetOptions = <Widget>[
+      HomeMenuBar(),
+      EventPage(),
+      CardPage(),
+      // UserProfile()
+    ];
 
     void _onItemTapped(int index) {
       setState(() {
@@ -33,12 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       super.dispose();
     }
 
-    static const List<Widget> _widgetOptions = <Widget>[
-    HomeMenuBar(),
-    EventPage(),
-    CardPage(),
-    // UserProfile()
-  ];
+
 
   @override
   Widget build(BuildContext context) {
