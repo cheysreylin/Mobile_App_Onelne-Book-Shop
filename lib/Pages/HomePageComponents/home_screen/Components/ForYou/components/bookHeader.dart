@@ -8,21 +8,14 @@ import 'package:projecttesting/model/api.dart';
 import '../../../../../../settings/settings_controller.dart';
 import 'dart:async';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:projecttesting/model/api.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:projecttesting/Pages/DetailPage/detail.dart';
-import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bestAuthor.dart';
 
-class MovieHeader extends StatefulWidget {
+class BookHeader extends StatefulWidget {
   final List<Books> bookHeaderList = book_list;
   @override
-  State<MovieHeader> createState() => _MovieHeaderState();
+  State<BookHeader> createState() => _BookHeaderState();
 }
 
-class _MovieHeaderState extends State<MovieHeader> {
+class _BookHeaderState extends State<BookHeader> {
   final _pageController = PageController(viewportFraction: 1, keepPage: true);
 
   int _currentPage = 0;
@@ -66,14 +59,9 @@ class _MovieHeaderState extends State<MovieHeader> {
               controller: _pageController,
               children: widget.bookHeaderList
                   .map((e) => GestureDetector(
-                        // onTap: () => Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //     builder: (context) => DetailPage(
-                        //       settingsController: widget.settingsController,
-                        //       books: e,
-                        //     ),
-                        //   ),
-                        // ),
+                        onTap: (() {
+                            Navigator.of(context).push(MaterialPageRoute(builder: ((context) => BookDetail(e))));
+                          }),
                         child: Stack(
                           fit: StackFit.expand,
                           children: [
