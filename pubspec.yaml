@@ -93,16 +93,22 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
-  #   - family: Schyler
+  #   - family: Roboto
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
+  #       - asset: assets/fonts/Roboto-Regular.ttf
+
+  #   - family: Gideon_Roman
   #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  #       - asset: assets/fonts/GideonRoman-Regular.ttf
+
+  #   - family: Noto_Serif
+  #     fonts:
+  #       - asset: assets/fonts/NotoSerifDisplay-Regular.ttf
+
+  #   - family: Redressed
+  #     fonts:
+  #       - asset: assets/fonts/Redressed-Regular.ttf
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

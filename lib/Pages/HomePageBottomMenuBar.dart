@@ -1,15 +1,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/Cards/card.dart';
+import 'package:projecttesting/Pages/CustomAppBar/CustomAppBar.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 
 
-
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
+  //const HomeScreen({super.key});
+  final SettingsController settingsController = SettingsController();
+  const HomeScreen({Key? key, required this.settingsController})
+      : super(key: key);
+  
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -26,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       CardPage(),
       // UserProfile()
     ];
-
+    
     void _onItemTapped(int index) {
       setState(() {
         _selectedIndex = index;
@@ -39,54 +42,76 @@ class _HomeScreenState extends State<HomeScreen> {
       super.dispose();
     }
 
-
-
   @override
   Widget build(BuildContext context) {
-
-    final text = MediaQuery.of(context).platformBrightness == Brightness.dark
-      ? "DarkTheme"
-      : "LightTheme";
+    late final SettingsController settingsController;
 
     return SafeArea(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           resizeToAvoidBottomInset: false, 
-          appBar: AppBar(
+           appBar: AppBar(
             backgroundColor: Color.fromARGB(255, 255, 255, 255),
             elevation: 0,
             title: Container(
               width: double.infinity,
-              // height:15,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 238, 238, 238), borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextField(
-                controller: _searchController,
-                decoration: InputDecoration(
-                  iconColor: Colors.grey,
-                  prefixIcon: const Icon(Icons.search),
-                  suffixIcon: IconButton(
-                    onPressed: (){
-                      this.setState(() {
-                        _searchController.clear();
-                      });
-                    }, 
-                    icon: Icon(Icons.clear),
-                  ),
-                  hintText: 'Search...',
-                  border: InputBorder.none
-                ),
+                color: Color.fromARGB(255, 255, 255, 255), 
               ),
             ),
             actions: [
-              IconButton(onPressed: (){
-                
-              }, 
-              icon: Icon(Icons.light_mode), color: Colors.grey,)
+              CustomAppBar(settingsController: settingsController,)
             ],
-          ),
+           ),         
+          // AppBar(
+            //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
+            //   elevation: 0,
+            //   title: Container(
+            //     width: double.infinity,
+            //     // height:15,
+            //     decoration: BoxDecoration(
+            //       color: Color.fromARGB(255, 255, 255, 255), 
+            //       //borderRadius: BorderRadius.circular(65),
+            //     ),
+            //     child: TextField(
+            //       controller: _searchController,
+            //       decoration: InputDecoration(
+            //         filled: true,
+            //         fillColor: Theme.of(context).colorScheme.secondary,
+            //         //iconColor: Color.fromARGB(255, 219, 42, 42),
+            //         prefixIcon: const Icon(Icons.search),
+            //         suffixIcon: IconButton(
+            //           onPressed: (){
+            //             this.setState(() {
+            //               _searchController.clear();
+            //             });
+            //           }, 
+            //           icon: Icon(Icons.clear),
+            //         ),
+            //         hintText: 'Search...',
+            //         border: OutlineInputBorder(
+            //           borderRadius: BorderRadius.circular(35),
+            //           borderSide: BorderSide.none),
+            //         ),
+            //     ),
+            //   ),
+            //   actions: 
+            //   [
+            //     IconButton(
+            //       onPressed: () {
+            //         settingsController.updateThemeMode(
+            //             settingsController.themeMode == ThemeMode.light
+            //                 ? ThemeMode.dark
+            //                 : ThemeMode.light);
+            //       },
+            //       icon: Icon(settingsController.themeMode == ThemeMode.light
+            //           ? Icons.dark_mode_rounded
+            //           : Icons.light_mode_rounded),
+            //     )
+            //   ]
+            // ),
+
           body: Center(
               child: _widgetOptions.elementAt(_selectedIndex),
           ),
@@ -123,3 +148,8 @@ class _HomeScreenState extends State<HomeScreen> {
       );
   }
 }
+
+
+
+
+

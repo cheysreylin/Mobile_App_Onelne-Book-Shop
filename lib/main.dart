@@ -1,28 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
+import 'package:projecttesting/settings/settings_service.dart';
 import 'Pages/HomePageBottomMenuBar.dart';
+import 'Theme/themeProvider.dart';
 
-void main(){
-  runApp(MyApp());
+Future<void> main() async {
+  final settingsController = SettingsController(SettingsService());
+
+  await settingsController.loadSettings();
+  runApp(MyApp(settingsController: settingsController));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({
+    Key? key,
+    required this.settingsController,
+  }) : super(key: key);
+
+  final SettingsController settingsController;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData.light(),
-      // darkTheme: ThemeData.dark(),
+      theme: Themes.lightTheme,
+      darkTheme: Themes.datkTheme,
+      themeMode: settingsController.themeMode,
 
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/' : (context) => HomeScreen(),
+        '/' : (context) => HomeScreen(settingsController: settingsController,),
         //'/' : (context) => LoadingScreen(),
         //'/' : (context) => LogIn(),
       //  '/' : (context) => Register(),
         // '/' : (context) => EventPage(),
-        '/Homescreen' : (context) => HomeScreen(),
+        '/Homescreen' : (context) => HomeScreen(settingsController: settingsController,),
         // '/login_screen' :(context) => LogIn(),
         //'/Register_screen' :(context) => Register(),
         // '/ResetPasswordScreen' :(context) => ResetPassword(),
