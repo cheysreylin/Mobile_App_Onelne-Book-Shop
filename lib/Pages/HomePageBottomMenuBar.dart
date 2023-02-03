@@ -1,15 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/Cards/card.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
+import 'package:projecttesting/Pages/ProfilesError/profile.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 
 
 class HomeScreen extends StatefulWidget {
   //const HomeScreen({super.key});
-  const HomeScreen({Key? key, required this.settingsController})
-      : super(key: key);
-      
+  const HomeScreen({
+    Key? key,
+    required this.settingsController,
+  }) : super(key: key);
+
   final SettingsController settingsController;
 
   @override
@@ -26,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
       HomeMenuBar(),
       EventPage(),
       CardPage(),
-      // UserProfile()
+      UserProfile()
     ];
       
     void _onItemTapped(int index) {
@@ -91,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //     ]
           //  ),         
          appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 255, 255, 255),
+            backgroundColor: Color.fromARGB(255, 228, 172, 172),
             elevation: 0,
             title: Container(
               width: double.infinity,
@@ -104,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Theme.of(context).colorScheme.secondary,
+                  fillColor: Theme.of(context).colorScheme.background,
                   //iconColor: Color.fromARGB(255, 219, 42, 42),
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: IconButton(

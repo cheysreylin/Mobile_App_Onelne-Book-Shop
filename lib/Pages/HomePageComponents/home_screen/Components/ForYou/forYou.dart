@@ -5,10 +5,12 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:projecttesting/Pages/DetailPage/detail.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bestAuthor.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bookHeader.dart';
+import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/customappbar.dart';
 import 'package:projecttesting/model/api.dart';
 import '../../../../../../settings/settings_controller.dart';
 
 class ForYou extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class ForYou extends StatelessWidget {
           height: 2022,
           child: Column(
             children: [
+              //CustomAppBar(),
               // Movie Header 
               BookHeader(),
               // Recommendation book 

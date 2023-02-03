@@ -1,42 +1,44 @@
-// import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:projecttesting/Pages/RegisterPage/registerScreen.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:projecttesting/Pages/RegisterPage/registerScreen.dart';
 
-// class UserProfile extends StatefulWidget {
-//   // UserProfile({Key? key, required this.user}): super(key: key);
-//   // Firebase user;
+class UserProfile extends StatefulWidget {
+  const UserProfile({super.key});
 
-//   @override
-//   State<UserProfile> createState() => _UserProfileState();
-// }
+  // UserProfile({Key? key, required this.user}): super(key: key);
+  // late Firebase user;
 
-// class _UserProfileState extends State<UserProfile> {
+  @override
+  State<UserProfile> createState() => _UserProfileState();
+}
 
-//   // Firebase? user;
-//   // Future<void> getUserData() async{
-//   //   //final FirebaseAuth auth = FirebaseAuth.instance.currentUser?.email as FirebaseAuth;
-//   //   final User? userData = await FirebaseAuth.instance.currentUser;
-//   //   setState(() {
-//   //     user = userData as Firebase?;
-//   //   });
-//   // }
+class _UserProfileState extends State<UserProfile> {
 
-//   @override
-//   Widget build(BuildContext context) {
+  Firebase? user;
+  Future<void> getUserData() async{
+    //final FirebaseAuth auth = FirebaseAuth.instance.currentUser?.email as FirebaseAuth;
+    final User? userData = await FirebaseAuth.instance.currentUser;
+    setState(() {
+      user = userData as Firebase?;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
    
-//     return Center(
-//       child: ElevatedButton(
-//           child: Text("Logout"), 
-//           onPressed: () {
-//             FirebaseAuth.instance.signOut().then((value) {
-//               print("Signed Out");
-//               Navigator.push(context,
-//                   MaterialPageRoute(builder: (context) => Register()));
-//             });
-//           },
-//         ),
-//     );
+    return Center(
+      child: ElevatedButton(
+          child: Text("Logout"), 
+          onPressed: () {
+            FirebaseAuth.instance.signOut().then((value) {
+              print("Signed Out");
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Register()));
+            });
+          },
+        ),
+    );
 
-//   }
-// }
+  }
+}
