@@ -8,8 +8,10 @@ class Themes {
     fontFamily: 'Roboto',
   );
   static final datkTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.grey[900],
+    scaffoldBackgroundColor: Color.fromARGB(255, 18, 18, 18),
     colorScheme: const ColorScheme.dark().copyWith(secondary: Colors.black38),
     fontFamily: 'Roboto',
   );
+
+  static of(BuildContext context) {}
 }

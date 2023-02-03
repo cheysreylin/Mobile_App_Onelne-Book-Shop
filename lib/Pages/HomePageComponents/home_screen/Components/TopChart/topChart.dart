@@ -4,8 +4,12 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:projecttesting/model/api.dart';
 
+import '../../../../../settings/settings_controller.dart';
+
 class TopChart extends StatelessWidget {
-  const TopChart({super.key});
+  //const TopChart({super.key});
+  const TopChart({Key? key, required this.settingsController}) : super(key: key);
+  final SettingsController settingsController;
 
   @override
   Widget build(BuildContext context) {

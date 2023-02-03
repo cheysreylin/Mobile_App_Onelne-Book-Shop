@@ -4,6 +4,7 @@ import 'package:projecttesting/Pages/Cards/card.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
 import 'package:projecttesting/Pages/ProfilesError/profile.dart';
+import 'package:projecttesting/Theme/themeProvider.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 
 
@@ -26,13 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
     final ScrollController _HomePageController = ScrollController();
     TextEditingController _searchController = TextEditingController();
 
-    static const List<Widget> _widgetOptions = <Widget>[
-      HomeMenuBar(),
+    late final List<Widget> _widgetOptions = <Widget>[
+      HomeMenuBar(settingsController: widget.settingsController,),
       EventPage(),
       CardPage(),
       UserProfile()
     ];
-      
+     
+
     void _onItemTapped(int index) {
       setState(() {
         _selectedIndex = index;
@@ -95,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //     ]
           //  ),         
          appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 228, 172, 172),
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             elevation: 0,
             title: Container(
               width: double.infinity,
@@ -121,8 +123,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   hintText: 'Search...',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(35),
-                    borderSide: BorderSide.none),
+                    borderRadius: BorderRadius.circular(0),
+                    borderSide: BorderSide.none
+                    ),
                   ),
               ),
             ),
@@ -143,7 +146,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         
         body: Container(
-
             child: _widgetOptions.elementAt(_selectedIndex),
         ),
 
@@ -157,18 +159,22 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 3,
           items: [
             BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               icon: Icon(Icons.home),
               label: 'Home',
             ),
             BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               icon: Icon(Icons.mail),
               label: 'Event',
             ),
             BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               icon: Icon(Icons.person),
               label: 'Card',
             ),
             BottomNavigationBarItem(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               icon: Icon(Icons.camera),
               label: 'Profile',
             )
@@ -178,6 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
       );
   }
 }
+
 
 
 

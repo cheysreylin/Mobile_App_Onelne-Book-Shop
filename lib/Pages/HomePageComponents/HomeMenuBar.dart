@@ -6,21 +6,23 @@ import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/T
 import 'package:projecttesting/settings/settings_controller.dart';
 
 class HomeMenuBar extends StatelessWidget {
-  const HomeMenuBar({super.key});
-  // const HomeMenuBar({Key? key, required this.settingsController})
-  //     : super(key: key);
-  // final SettingsController settingsController;
+  // const HomeMenuBar({super.key});
+  const HomeMenuBar({Key? key, required this.settingsController})
+      : super(key: key);
+  final SettingsController settingsController;
 
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body:DefaultTabController(
             length: 3, 
             child: Scaffold(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               appBar: new PreferredSize(
+                
                 preferredSize: Size.fromHeight(56.0),
                 child: TabBar(
                   tabs: [
@@ -32,9 +34,9 @@ class HomeMenuBar extends StatelessWidget {
               ),
               body: TabBarView(
                 children: [
-                    ForYou(),
-                    const TopChart(),
-                    const Author(),
+                    ForYou(settingsController: settingsController),
+                    TopChart(settingsController: settingsController),
+                    Author(settingsController: settingsController),
                 ]
              ),
             )

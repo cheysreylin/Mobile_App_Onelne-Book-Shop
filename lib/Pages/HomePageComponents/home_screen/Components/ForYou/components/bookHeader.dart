@@ -10,6 +10,10 @@ import 'dart:async';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BookHeader extends StatefulWidget {
+  BookHeader({Key? key, required this.settingsController})
+      : super(key: key);
+  final SettingsController settingsController;
+
   final List<Books> bookHeaderList = book_list;
   @override
   State<BookHeader> createState() => _BookHeaderState();

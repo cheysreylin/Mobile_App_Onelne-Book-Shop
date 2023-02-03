@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:projecttesting/Pages/DetailPage/detail.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bestAuthor.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bookHeader.dart';
@@ -10,20 +8,28 @@ import 'package:projecttesting/model/api.dart';
 import '../../../../../../settings/settings_controller.dart';
 
 class ForYou extends StatelessWidget {
-
+  ForYou({Key? key, required this.settingsController, this.color}) : super(key: key);
+  final SettingsController settingsController;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
-    return Container(
-      child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: SingleChildScrollView(
+        
+        //physics: const BouncingScrollPhysics(),
         child: Container(
+          decoration: BoxDecoration(
+            color: color ?? Theme.of(context).scaffoldBackgroundColor
+          ),
           height: 2022,
           child: Column(
             children: [
-              //CustomAppBar(),
+              //CustomAppBar(settingsController: settingsController,),
               // Movie Header 
-              BookHeader(),
+              BookHeader(settingsController: settingsController,),
               // Recommendation book 
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -124,7 +130,7 @@ class ForYou extends StatelessWidget {
                   }
                 )),
               ),    
-
+    
              // Popular 
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
