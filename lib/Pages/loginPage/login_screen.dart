@@ -25,7 +25,7 @@ class _LogInState extends State<LogIn> {
         future: _initializeFirebase(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done){
-            return LoginScreen();
+            return const LoginScreen();
           }
           return const Center(
             child: CircularProgressIndicator(),
@@ -68,7 +68,6 @@ class _LoginScreenState extends State<LoginScreen> {
     TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
 
-
     return Container(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -86,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               // log in text container 
               Container(
                 child: Center(

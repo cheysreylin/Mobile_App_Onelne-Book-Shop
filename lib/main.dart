@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 import 'package:projecttesting/settings/settings_service.dart';
@@ -21,25 +22,53 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: Themes.lightTheme,
-      darkTheme: Themes.datkTheme,
-      themeMode: settingsController.themeMode,
+    return AnimatedBuilder(
+      animation: settingsController,
+      builder: (BuildContext context, Widget? child){
+        return MaterialApp(
+        theme: Themes.lightTheme,
+        darkTheme: Themes.datkTheme,
+        themeMode: settingsController.themeMode,
+    
+        debugShowCheckedModeBanner: false,
 
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/' : (context) => HomeScreen(settingsController: settingsController,),
-        //'/' : (context) => LoadingScreen(),
-        //'/' : (context) => LogIn(),
-      //  '/' : (context) => Register(),
-        // '/' : (context) => EventPage(),
-        '/Homescreen' : (context) => HomeScreen(settingsController: settingsController,),
-        // '/login_screen' :(context) => LogIn(),
-        //'/Register_screen' :(context) => Register(),
-        // '/ResetPasswordScreen' :(context) => ResetPassword(),
-        // '/detailScreen' :(context) => BookDetail(),
-      },
+        onGenerateRoute: (RouteSettings routeSettings) {
+            return MaterialPageRoute<void>(
+              settings: routeSettings,
+              builder: (BuildContext context) {
+                switch (routeSettings.name) {
+                  default:
+                    return HomeScreen(
+                      settingsController: settingsController,
+                    );
+                }
+              },
+            );
+          },
+        // initialRoute: '/',
+        // routes: {
+        //   '/' : (context) => HomeScreen(settingsController: settingsController,),
+        //   //'/' : (context) => LoadingScreen(),
+        //   //'/' : (context) => LogIn(),
+        // //  '/' : (context) => Register(),
+        //   // '/' : (context) => EventPage(),
+        //   '/Homescreen' : (context) => HomeScreen(settingsController: settingsController,),
+        //   // '/login_screen' :(context) => LogIn(),
+        //   //'/Register_screen' :(context) => Register(),
+        //   // '/ResetPasswordScreen' :(context) => ResetPassword(),
+        //   // '/detailScreen' :(context) => BookDetail(),
+        // },
+      );
+      }
     );
   }
+}
+
+class MyCustomScrollBehaviors extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

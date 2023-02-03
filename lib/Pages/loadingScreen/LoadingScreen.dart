@@ -34,7 +34,7 @@ class LoadingScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 224, 224, 224)
                     ),
                   ),
-                  SizedBox(height: 70,),
+                  const SizedBox(height: 70,),
                   Container(
                     margin: EdgeInsets.fromLTRB(130.0, 70.0, 10.0, 10.0),
                     child: Column(
@@ -45,12 +45,11 @@ class LoadingScreen extends StatelessWidget {
                             onPressed: (){
                               Navigator.pushNamed(context, '/login_screen');
                             },
-                            backgroundColor: Color.fromARGB(255, 61, 119, 129),
+                            //backgroundColor: Color.fromARGB(255, 61, 119, 129),
                             shape: RoundedRectangleBorder(
                               side: BorderSide(color: Color.fromARGB(255, 182, 182, 182),width: 2),
                               borderRadius: BorderRadius.circular(10), 
                             ),
-                            
                             child: Text('Next'),
                           ),
                         ),

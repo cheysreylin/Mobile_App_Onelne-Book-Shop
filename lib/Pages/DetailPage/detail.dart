@@ -9,6 +9,7 @@ class BookDetail extends StatelessWidget {
   // const BookDetail({super.key});
   final Books book;
   const BookDetail(this.book,{Key? key}) : super(key: key);
+
   
   @override
   Widget build(BuildContext context) {
@@ -207,20 +208,4 @@ class BookDetail extends StatelessWidget {
       );
   }
 }
-
-// class AddFavourite extends StatefulWidget {
-//   const AddFavourite({super.key});
-
-//   @override
-//   State<AddFavourite> createState() => _AddFavouriteState();
-// }
-
-// class _AddFavouriteState extends State<AddFavourite> {
-//   bool _isFavourite = false;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-
 

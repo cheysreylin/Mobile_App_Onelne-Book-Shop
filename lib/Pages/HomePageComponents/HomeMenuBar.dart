@@ -14,18 +14,9 @@ class HomeMenuBar extends StatelessWidget {
         body:DefaultTabController(
             length: 3, 
             child: Scaffold(
-              appBar: AppBar(
-                toolbarHeight: 10,
-                backgroundColor: Colors.white,
-                bottom: TabBar(
-               
-                  // isScrollable: true,
-                  // unselectedLabelColor: Colors.grey,
-                  // indicatorColor: Colors.white,
-                  // indicatorSize: TabBarIndicatorSize.label,
-                  // indicator: BoxDecoration(
-                  //   color: Colors.white
-                  // ),
+              appBar: new PreferredSize(
+                preferredSize: Size.fromHeight(56.0),
+                child: TabBar(
                   tabs: [
                     Tab(icon: TextButton(onPressed: (){}, child: Text("For You"))),
                     Tab(icon: TextButton(onPressed: (){}, child: Text("Top Chart")),),
@@ -35,15 +26,9 @@ class HomeMenuBar extends StatelessWidget {
               ),
               body: TabBarView(
                 children: [
-                    Container(
-                      child: ForYou(),
-                    ),
-                    Container(
-                      child: TopChart(),
-                    ),
-                    Container(
-                      child: Author(),
-                    ),
+                    ForYou(),
+                    const TopChart(),
+                    const Author(),
                 ]
              ),
             )

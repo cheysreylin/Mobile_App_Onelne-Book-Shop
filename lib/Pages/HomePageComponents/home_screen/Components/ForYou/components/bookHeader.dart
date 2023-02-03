@@ -33,7 +33,7 @@ class _BookHeaderState extends State<BookHeader> {
 
       _pageController.animateToPage(
         _currentPage,
-        duration: const Duration(milliseconds: 450),
+        duration: const Duration(milliseconds: 1550),
         curve: Curves.easeIn,
       );
     });

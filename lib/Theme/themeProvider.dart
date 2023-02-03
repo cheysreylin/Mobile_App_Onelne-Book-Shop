@@ -12,8 +12,4 @@ class Themes {
     colorScheme: const ColorScheme.dark().copyWith(secondary: Colors.black38),
     fontFamily: 'Roboto',
   );
-
-  get themeMode => null;
-
-  static void updateThemeMode(ThemeMode themeMode) {}
 }
