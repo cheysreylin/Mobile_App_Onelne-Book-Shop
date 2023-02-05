@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/Author/author.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/customappbar.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/forYou.dart';
+import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/TopChart/Top_Chart.dart';
+import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/TopChart/components/loadingscreen.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/TopChart/topChart.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 
 class HomeMenuBar extends StatelessWidget {
   // const HomeMenuBar({super.key});
-  const HomeMenuBar({Key? key, required this.settingsController})
+  var l;
+  HomeMenuBar({Key? key, required this.settingsController, required this.l})
       : super(key: key);
   final SettingsController settingsController;
-
-
+  
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -35,7 +38,7 @@ class HomeMenuBar extends StatelessWidget {
               body: TabBarView(
                 children: [
                     ForYou(settingsController: settingsController),
-                    TopChart(settingsController: settingsController),
+                    loadingscreenTopChart(l: l),
                     Author(settingsController: settingsController),
                 ]
              ),

@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     TextEditingController _searchController = TextEditingController();
 
     late final List<Widget> _widgetOptions = <Widget>[
-      HomeMenuBar(settingsController: widget.settingsController,),
+      HomeMenuBar(settingsController: widget.settingsController, l: widget,),
       EventPage(),
       CardPage(),
       UserProfile()
@@ -165,17 +165,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              icon: Icon(Icons.mail),
+              icon: Icon(Icons.event),
               label: 'Event',
             ),
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.favorite_outline),
               label: 'Card',
             ),
             BottomNavigationBarItem(
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              icon: Icon(Icons.camera),
+              icon: Icon(Icons.person_pin_rounded),
               label: 'Profile',
             )
           ],
