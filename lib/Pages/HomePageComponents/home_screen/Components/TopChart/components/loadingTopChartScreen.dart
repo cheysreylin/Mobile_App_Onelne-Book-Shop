@@ -55,10 +55,6 @@ class _loadingscreenTopChartState extends State<loadingscreenTopChart>
       c3 = jsonDecode(r3.body);
       c4 = jsonDecode(r4.body);
     });
-
-    // Navigator.push(context, MaterialPageRoute(builder: (context) {
-    //   return TopChart(c1: c1, c2: c2, c3: c3, c4: c4);
-    // }));
   }
 
   @override
@@ -75,16 +71,6 @@ class _loadingscreenTopChartState extends State<loadingscreenTopChart>
           ): Expanded(child: TopChart(c1: c1, c2: c2, c3: c3, c4: c4))
         ],
       ),
-      // body: Center (
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       Container(
-      //         child:TopChart(c1: c1, c2: c2, c3: c3, c4: c4),
-      //       ),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }

@@ -1,20 +1,25 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:http/http.dart';
 import 'package:projecttesting/Pages/DetailPage/detail.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bestAuthor.dart';
 import 'package:projecttesting/model/api.dart';
 import '../../../../../../settings/settings_controller.dart';
 import 'dart:async';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../../../../../source/category/adventure.dart';
 
-class BookHeader extends StatefulWidget {
+class BookHeader extends StatefulWidget { 
   BookHeader({Key? key, required this.settingsController})
       : super(key: key);
   final SettingsController settingsController;
 
   final List<Books> bookHeaderList = book_list;
+  
   @override
   State<BookHeader> createState() => _BookHeaderState();
 }
@@ -22,11 +27,14 @@ class BookHeader extends StatefulWidget {
 class _BookHeaderState extends State<BookHeader> {
   final _pageController = PageController(viewportFraction: 1, keepPage: true);
 
+  late bool _isloading;
   int _currentPage = 0;
   Timer? _timer;
+  var c2;
 
   @override
   void initState() {
+    getcategorydata();
     super.initState();
     _timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
       if (_currentPage < widget.bookHeaderList.length) {
@@ -41,13 +49,32 @@ class _BookHeaderState extends State<BookHeader> {
         curve: Curves.easeIn,
       );
     });
+
+    super.initState();
+    _isloading = true;
+    Future.delayed(const Duration(seconds: 5), (){
+      setState(() {
+        _isloading = false;
+      });
+    });
+    super.initState();
   }
 
+  void getcategorydata() async {
+    Response r2 = await get(Uri.parse(
+        "https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&download=epub&orderBy=newest&key=AIzaSyAqxw3nnCxwNQXRmXb-ZFi8FTNyhz6kwGA"));
+  
+    setState(() {
+      c2 = jsonDecode(r2.body);
+    });
+  }
+  
   @override
   void dispose() {
     super.dispose();
     _timer?.cancel();
   }
+
 
   @override
   Widget build(BuildContext context) {
