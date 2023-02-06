@@ -78,6 +78,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/Author/AllAuthor/
+    - assets/Author/AuthorMonth/
+    - assets/Author/AuthorWeek/
+    - assets/Author/TopSell/
     - assets/homescreen/book1.jpg
     - assets/homescreen/book2.jpg
     - assets/homescreen/book3.jpg
@@ -86,6 +90,7 @@ flutter:
     - assets/homescreen/book_icon.png
     - assets/star/star.png
     - assets/events_bookImg/harry-potter.jpg
+    - assets/BestAuthor/BestAuthor.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

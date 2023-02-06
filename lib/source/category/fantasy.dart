@@ -1,8 +1,6 @@
 // import 'package:boekiez/screens.dart/bookloading.dart';
 // import 'package:boekiez/screens.dart/error.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:projecttesting/source/Provider/bookloading.dart';
 import 'package:projecttesting/source/Provider/error.dart';
 
@@ -73,18 +71,23 @@ class _fantasyState extends State<fantasy> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            (widget.c2["items"][index + 1]["volumeInfo"]
-                                            ["title"])
-                                        .length >
-                                    20
-                                ? st(widget.c2["items"][index + 1]["volumeInfo"]
-                                    ["title"])
-                                : widget.c2["items"][index + 1]["volumeInfo"]
-                                    ["title"],
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey[900]),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                (widget.c2["items"][index + 1]["volumeInfo"]
+                                                ["title"])
+                                            .length >
+                                        20
+                                    ? st(widget.c2["items"][index + 1]["volumeInfo"]
+                                        ["title"])
+                                    : widget.c2["items"][index + 1]["volumeInfo"]
+                                        ["title"],
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey[900]),
+                              ),
+                            ],
                           ),
                         ],
                       ),

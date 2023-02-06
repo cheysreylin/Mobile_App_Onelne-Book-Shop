@@ -1,7 +1,13 @@
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/Author/components/authorDetailPage.dart';
+import 'package:projecttesting/model/AllAuthor/AuthorDetail.dart';
+import 'package:projecttesting/model/AuthorMonth/authorMonth.dart';
+import 'package:projecttesting/model/AuthorWeek/authorWeek.dart';
+import 'package:projecttesting/model/TopSellAuthor/topSellAuthor.dart';
 import 'package:projecttesting/model/api.dart';
 
 import '../../../../../settings/settings_controller.dart';
@@ -16,7 +22,7 @@ class Author extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
-          height: 900,
+          height: 996,
           color: Color.fromARGB(255, 255, 255, 255),
           child: Column(
             children: 
@@ -24,12 +30,12 @@ class Author extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(15, 15, 0, 0),
-                    child: Text("Top Sell Author",
+                    margin: EdgeInsets.fromLTRB(12, 12, 0, 12),
+                    child: Text("Top Sell",
                     style: new TextStyle(
-                          fontSize: 19.5,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 59, 59, 59)
+                          color: Color.fromARGB(255, 99, 99, 99)
                         )
                       ),
                   ),
@@ -39,67 +45,87 @@ class Author extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: book_list.length,
+                itemCount: AuthorList.length,
                 itemBuilder: ((context, index) {
-                  Books model = book_list[index];
+                  AllAuthor author = AuthorList[index];
                   return Container(
-                    margin: EdgeInsets.all(7),
-                    child: ClipRRect(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            margin: EdgeInsets.all(7),
-                            decoration: new BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: new DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(model.image)
-                                ),
-                            )
-                          ),
-                          SizedBox(
-                            // width: 120,
-                            // height: 120,
+                    margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    padding: EdgeInsets.all(1),
+                    child: GestureDetector(
+                      onTap: (() {
+                            Navigator.of(context).push(MaterialPageRoute(builder: ((context) => AuthorDetail(authordetails: author,))));
+                      }),
+                      child: Card(
+                        elevation: 7,
+                        color: Color.fromARGB(255, 236, 236, 236),
+                        child: Container(
+                          height: 70,
+                          width: 130,
+                          //color: Colors.amber,
+                          margin: EdgeInsets.all(7),
+                          child: ClipRRect(
                             child: Column(
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      child: 
-                                        Text(model.author_name,
-                                        style: new TextStyle(
-                                              fontSize: 13.5,
-                                              fontWeight: FontWeight.bold,
-                                              color: Color.fromARGB(255, 66, 66, 66)
-                                            )
-                                        ),
-                                    ),
-                                  ],
-                                ), 
-                                SizedBox(height: 2,),
+                                Container(
+                                  height: 100,
+                                  width: 100,
+                                  margin: EdgeInsets.all(7),
+                                  decoration: new BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: new DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(author.image)
+                                      ),
+                                  )
+                                ),
+                                SizedBox(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 100,
+                                            //color: Colors.amber,
+                                            child: 
+                                              Center(
+                                                child: Text(author.name,
+                                                maxLines: 2,
+                                                softWrap: true,
+                                                style: new TextStyle(
+                                                      fontSize: 12.5,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color.fromARGB(255, 129, 129, 129)
+                                                    )
+                                                ),
+                                              ),
+                                          ),
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                    ],
+                                  ),
+                                ),
+                      
                               ],
                             ),
                           ),
-
-                        ],
+                        ),
                       ),
                     ),
                   );
                 }
               )),
-              ), 
+              ),
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(15, 15, 0, 0),
-                    child: Text("Best Author Of this Week",
+                    margin: EdgeInsets.fromLTRB(12, 12, 0, 12),
+                    child: Text("Top Authors of this Week",
                     style: new TextStyle(
-                          fontSize: 19.5,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 59, 59, 59)
+                          color: Color.fromARGB(255, 99, 99, 99)
                         )
                       ),
                   ),
@@ -109,67 +135,87 @@ class Author extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: book_list.length,
+                itemCount: AuthorList.length,
                 itemBuilder: ((context, index) {
-                  Books model = book_list[index];
+                  AllAuthor author = AuthorList[index];
                   return Container(
-                    margin: EdgeInsets.all(7),
-                    child: ClipRRect(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            margin: EdgeInsets.all(7),
-                            decoration: new BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: new DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(model.image)
-                                ),
-                            )
-                          ),
-                          SizedBox(
-                            // width: 120,
-                            // height: 120,
+                    margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    padding: EdgeInsets.all(1),
+                    child: GestureDetector(
+                       onTap: (() {
+                            Navigator.of(context).push(MaterialPageRoute(builder: ((context) => AuthorDetail(authordetails: author,))));
+                      }),
+                      child: Card(
+                        elevation: 7,
+                        color: Color.fromARGB(255, 236, 236, 236),
+                        child: Container(
+                          height: 70,
+                          width: 130,
+                          //color: Colors.amber,
+                          margin: EdgeInsets.all(7),
+                          child: ClipRRect(
                             child: Column(
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      child: 
-                                        Text(model.author_name,
-                                        style: new TextStyle(
-                                              fontSize: 13.5,
-                                              fontWeight: FontWeight.bold,
-                                              color: Color.fromARGB(255, 66, 66, 66)
-                                            )
-                                        ),
-                                    ),
-                                  ],
-                                ), 
-                                SizedBox(height: 2,),
+                                Container(
+                                  height: 100,
+                                  width: 100,
+                                  margin: EdgeInsets.all(7),
+                                  decoration: new BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: new DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(author.image)
+                                      ),
+                                  )
+                                ),
+                                SizedBox(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 100,
+                                            //color: Colors.amber,
+                                            child: 
+                                              Center(
+                                                child: Text(author.name,
+                                                maxLines: 2,
+                                                softWrap: true,
+                                                style: new TextStyle(
+                                                      fontSize: 12.5,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color.fromARGB(255, 129, 129, 129)
+                                                    )
+                                                ),
+                                              ),
+                                          ),
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                    ],
+                                  ),
+                                ),
+                      
                               ],
                             ),
                           ),
-
-                        ],
+                        ),
                       ),
                     ),
                   );
                 }
               )),
-              ), 
+              ),
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(15, 15, 0, 0),
-                    child: Text("Best Author of this Month",
+                    margin: EdgeInsets.fromLTRB(12, 12, 0, 12),
+                    child: Text("Top Authors of this Month",
                     style: new TextStyle(
-                          fontSize: 19.5,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 59, 59, 59)
+                          color: Color.fromARGB(255, 99, 99, 99)
                         )
                       ),
                   ),
@@ -179,52 +225,72 @@ class Author extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: book_list.length,
+                itemCount: AuthorList.length,
                 itemBuilder: ((context, index) {
-                  Books model = book_list[index];
+                  AllAuthor author = AuthorList[index];
                   return Container(
-                    margin: EdgeInsets.all(7),
-                    child: ClipRRect(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            margin: EdgeInsets.all(7),
-                            decoration: new BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: new DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(model.image)
-                                ),
-                            )
-                          ),
-                          SizedBox(
-                            // width: 120,
-                            // height: 120,
+                    margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    padding: EdgeInsets.all(1),
+                    child: GestureDetector(
+                       onTap: (() {
+                            Navigator.of(context).push(MaterialPageRoute(builder: ((context) => AuthorDetail(authordetails: author,))));
+                      }),
+                      child: Card(
+                        elevation: 7,
+                        color: Color.fromARGB(255, 236, 236, 236),
+                        child: Container(
+                          height: 70,
+                          width: 130,
+                          //color: Colors.amber,
+                          margin: EdgeInsets.all(7),
+                          child: ClipRRect(
                             child: Column(
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      child: 
-                                        Text(model.author_name,
-                                        style: new TextStyle(
-                                              fontSize: 13.5,
-                                              fontWeight: FontWeight.bold,
-                                              color: Color.fromARGB(255, 66, 66, 66)
-                                            )
-                                        ),
-                                    ),
-                                  ],
-                                ), 
-                                SizedBox(height: 2,),
+                                Container(
+                                  height: 100,
+                                  width: 100,
+                                  margin: EdgeInsets.all(7),
+                                  decoration: new BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: new DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(author.image)
+                                      ),
+                                  )
+                                ),
+                                SizedBox(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 100,
+                                            //color: Colors.amber,
+                                            child: 
+                                              Center(
+                                                child: Text(author.name,
+                                                maxLines: 2,
+                                                softWrap: true,
+                                                style: new TextStyle(
+                                                      fontSize: 12.5,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color.fromARGB(255, 129, 129, 129)
+                                                    )
+                                                ),
+                                              ),
+                                          ),
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                    ],
+                                  ),
+                                ),
+                      
                               ],
                             ),
                           ),
-
-                        ],
+                        ),
                       ),
                     ),
                   );
@@ -235,12 +301,12 @@ class Author extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(15, 15, 0, 0),
-                    child: Text("All Authors",
+                    margin: EdgeInsets.fromLTRB(12, 12, 0, 12),
+                    child: Text("All the Authors",
                     style: new TextStyle(
-                          fontSize: 19.5,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 59, 59, 59)
+                          color: Color.fromARGB(255, 99, 99, 99)
                         )
                       ),
                   ),
@@ -250,52 +316,72 @@ class Author extends StatelessWidget {
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                itemCount: book_list.length,
+                itemCount: AuthorList.length,
                 itemBuilder: ((context, index) {
-                  Books model = book_list[index];
+                  AllAuthor author = AuthorList[index];
                   return Container(
-                    margin: EdgeInsets.all(7),
-                    child: ClipRRect(
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            margin: EdgeInsets.all(7),
-                            decoration: new BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: new DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(model.image)
-                                ),
-                            )
-                          ),
-                          SizedBox(
-                            // width: 120,
-                            // height: 120,
+                    margin: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    padding: EdgeInsets.all(1),
+                    child: GestureDetector(
+                       onTap: (() {
+                            Navigator.of(context).push(MaterialPageRoute(builder: ((context) => AuthorDetail(authordetails: author,))));
+                      }),
+                      child: Card(
+                        elevation: 7,
+                        color: Color.fromARGB(255, 236, 236, 236),
+                        child: Container(
+                          height: 70,
+                          width: 130,
+                          //color: Colors.amber,
+                          margin: EdgeInsets.all(7),
+                          child: ClipRRect(
                             child: Column(
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      child: 
-                                        Text(model.author_name,
-                                        style: new TextStyle(
-                                              fontSize: 13.5,
-                                              fontWeight: FontWeight.bold,
-                                              color: Color.fromARGB(255, 66, 66, 66)
-                                            )
-                                        ),
-                                    ),
-                                  ],
-                                ), 
-                                SizedBox(height: 2,),
+                                Container(
+                                  height: 100,
+                                  width: 100,
+                                  margin: EdgeInsets.all(7),
+                                  decoration: new BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: new DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage(author.image)
+                                      ),
+                                  )
+                                ),
+                                SizedBox(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 100,
+                                            //color: Colors.amber,
+                                            child: 
+                                              Center(
+                                                child: Text(author.name,
+                                                maxLines: 2,
+                                                softWrap: true,
+                                                style: new TextStyle(
+                                                      fontSize: 12.5,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Color.fromARGB(255, 129, 129, 129)
+                                                    )
+                                                ),
+                                              ),
+                                          ),
+                                        ],
+                                      ), 
+                                      SizedBox(height: 2,),
+                                    ],
+                                  ),
+                                ),
+                      
                               ],
                             ),
                           ),
-
-                        ],
+                        ),
                       ),
                     ),
                   );

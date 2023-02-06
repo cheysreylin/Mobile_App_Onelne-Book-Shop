@@ -1,14 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:projecttesting/Pages/DetailPage/detail.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bestAuthor.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/bookHeader.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/horrorPopular.dart';
-//import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/customappbar.dart';
-import 'package:projecttesting/model/api.dart';
 import '../../../../../../settings/settings_controller.dart';
 import '../../../../../source/category/adventure.dart';
 
@@ -63,9 +59,9 @@ class _ForYouState extends State<ForYou> {
         //physics: const BouncingScrollPhysics(),
         child: Container(
           decoration: BoxDecoration(
-            color: widget.color ?? Theme.of(context).scaffoldBackgroundColor
+            color: Color.fromARGB(255, 234, 239, 240)
           ),
-          height: 2120,
+          height: 3300,
           child: Column(
             children: [
               //CustomAppBar(settingsController: settingsController,),
