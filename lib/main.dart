@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 import 'package:projecttesting/settings/settings_service.dart';
+import 'Pages/Authentication/RegisterPage/registerScreen.dart';
+import 'Pages/Authentication/loginPage/login_screen.dart';
 import 'Pages/HomePageBottomMenuBar.dart';
 import 'Theme/themeProvider.dart';
 
@@ -32,32 +34,32 @@ class MyApp extends StatelessWidget {
     
         debugShowCheckedModeBanner: false,
 
-        onGenerateRoute: (RouteSettings routeSettings) {
-            return MaterialPageRoute<void>(
-              settings: routeSettings,
-              builder: (BuildContext context) {
-                switch (routeSettings.name) {
-                  default:
-                    return HomeScreen(
-                      settingsController: settingsController,
-                    );
-                }
-              },
-            );
-          },
-        // initialRoute: '/',
-        // routes: {
-        //   '/' : (context) => HomeScreen(settingsController: settingsController,),
-        //   //'/' : (context) => LoadingScreen(),
-        //   //'/' : (context) => LogIn(),
-        // //  '/' : (context) => Register(),
-        //   // '/' : (context) => EventPage(),
-        //   '/Homescreen' : (context) => HomeScreen(settingsController: settingsController,),
-        //   // '/login_screen' :(context) => LogIn(),
-        //   //'/Register_screen' :(context) => Register(),
-        //   // '/ResetPasswordScreen' :(context) => ResetPassword(),
-        //   // '/detailScreen' :(context) => BookDetail(),
-        // },
+        // onGenerateRoute: (RouteSettings routeSettings) {
+        //     return MaterialPageRoute<void>(
+        //       settings: routeSettings,
+        //       builder: (BuildContext context) {
+        //         switch (routeSettings.name) {
+        //           default:
+        //             return HomeScreen(
+        //               settingsController: settingsController,
+        //             );
+        //         }
+        //       },
+        //     );
+        //   },
+        initialRoute: '/',
+        routes: {
+          '/' : (context) => HomeScreen(settingsController: settingsController,),
+          //'/' : (context) => LoadingScreen(),
+          //'/' : (context) => LogIn(),
+          //'/' : (context) => Register(),
+          // '/' : (context) => EventPage(),
+          '/Homescreen' : (context) => HomeScreen(settingsController: settingsController,),
+          '/login_screen' :(context) => LogIn(),
+          '/Register_screen' :(context) => Register(),
+          // '/ResetPasswordScreen' :(context) => ResetPassword(),
+          // '/detailScreen' :(context) => BookDetail(),
+        },
       );
       }
     );

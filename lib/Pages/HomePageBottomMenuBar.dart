@@ -4,6 +4,7 @@ import 'package:projecttesting/Pages/Cards/card.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
 import 'package:projecttesting/Pages/ProfilesError/profile.dart';
+import 'package:projecttesting/Pages/ProfilesError/userProfile.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 
 import '../FiltersBook/search_loadind.dart';
@@ -100,66 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
             //     ]
             //  ),         
            
-           appBar: AppBar(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              elevation: 0,
-              title: Container(
-                width: double.infinity,
-                child: TextField(
-                  autocorrect: true,
-                  controller: _searchController,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 236, 236, 236),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color.fromARGB(255, 248, 248, 248), width: 2),
-                      borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      borderSide: BorderSide(color: Color.fromARGB(255, 255, 255, 255)),
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: (){
-                        // this.setState(() {
-                        //   _searchController.clear();
-                        // });
-                        Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return searchloading(text: _searchController.text);
-                          }));
-                      }, 
-                      icon: Container(
-                        margin: EdgeInsets.only(right: 9),
-                        child: Icon(Icons.search)),
-                    ),
-                    //hintText: 'Search...',
-                    label: Container(
-                      margin: EdgeInsets.only(left: 9),
-                      child: Text("Search here...", style: TextStyle(color: Color.fromARGB(255, 158, 157, 157)),)),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(0),
-                      borderSide: BorderSide.none
-                      ),
-                    ),
-                ),
-              ),
-              actions: 
-              [
-                IconButton(
-                  onPressed: () {
-                    widget.settingsController.updateThemeMode(
-                        widget.settingsController.themeMode == ThemeMode.light
-                            ? ThemeMode.dark
-                            : ThemeMode.light);
-                  },
-                  icon: Icon(widget.settingsController.themeMode == ThemeMode.light
-                      ? Icons.dark_mode_rounded
-                      : Icons.light_mode_rounded),
-                )
-              ]
-            ),
-          
+
           body: Container(
               child: _widgetOptions.elementAt(_selectedIndex),
           ),

@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart'; 
 import 'package:email_validator/email_validator.dart';
+import 'package:projecttesting/Pages/Authentication/DatabaseManager/dataBaseManager.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -45,10 +47,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
     TextEditingController _passwordTextController = TextEditingController();
     TextEditingController _emailTextController = TextEditingController();
     TextEditingController _userNameTextController = TextEditingController();
+
+    // check validation
+    final _key = GlobalKey<FormState>();
     
 
     static Future<User?> createUserWithEmailAndPassword({
-    required String Username, required email, required password , required BuildContext contect}) async{
+    required String name, required String email, required String password , required BuildContext contect}) async{
       FirebaseAuth auth = FirebaseAuth.instance;
       User? user;
       try {
@@ -57,6 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 email: email, 
                 password: password);
         User? user = userCredential.user;
+        await DatabaseManager().createUserData(name, email, user!.uid);
         return user;
       } on FirebaseAuthException catch(e){
         if (e.code == null){
@@ -71,10 +77,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
 
-    return Container(
-      child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: SingleChildScrollView(
+    return Scaffold(
+      //backgroundColor: Color.fromARGB(255, 156, 170, 175),
+      body: Container(
+        height: 820,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color.fromARGB(255, 141, 174, 211), Color.fromARGB(255, 28, 82, 82)],
+            )
+          ),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               // logo container 
@@ -88,7 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(height: 7,),
               // log in text container 
               Container(
                 child: Center(
@@ -97,16 +109,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Text(
                         'Register Now',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 49, 49, 49),
+                          color: Color.fromARGB(255, 223, 223, 223),
                           fontWeight: FontWeight.bold,
-                          fontSize: 20
+                          fontSize: 30
                         ),
                         ),
                       SizedBox(height: 10,),
                       Text(
                         'Please enter detail to register using our app', 
                         style: TextStyle(
-                          color: Color.fromARGB(255, 128, 128, 128)
+                          color: Color.fromARGB(255, 255, 255, 255)
                         ),
                         )
                     ],
@@ -123,12 +135,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Container(
                       child: TextFormField(
                         controller: _userNameTextController,
+                        keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.person_add_alt_1_rounded),
-                          label: Text('Username')
+                          label: Text('Username', style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255)
+                          ),)
                         ),
-                        
+                        onChanged: (u){
+                          validateUserName(u);
+                        },
                       ),
                     ), 
                     SizedBox(height: 20,),
@@ -139,7 +156,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.verified_user),
-                          labelText: 'Email'
+                          label: Text('Email', style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255))
+                          ),
                         ),
                         onChanged: (val){
                           validateEmail(val);
@@ -155,11 +174,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       child: TextField(
                         controller: _passwordTextController,
                         obscureText: true,
+                        keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.lock),
-                          label: Text('Password')
+                          label: Text('Password', style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255)))
                         ),
+                        onChanged: (pw){
+                          validatePassword(pw);
+                        },
                       ),
                     ),
 
@@ -174,12 +198,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     TextButton(
                       onPressed: () async{
                         User? user = await createUserWithEmailAndPassword(
-                          Username: _userNameTextController.text, 
+                          name: _userNameTextController.text, 
                           email: _emailTextController.text, 
                           password: _passwordTextController.text, 
                           contect: context);
                           if (user != null){
                             Navigator.pushNamed(context, "/HomeScreen");
+                          }else{
+                            print(user.toString());
+                            _userNameTextController.clear();
+                            _passwordTextController.clear();
+                            _emailTextController.clear();
+                            Navigator.pop(context);
                           }
                       }, 
                       child: Container(
@@ -188,7 +218,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: const Text(
                           'Register',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Color.fromARGB(255, 255, 255, 255),
                             fontSize: 15
                           ),
                         ),
@@ -198,13 +228,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       margin: EdgeInsets.only(left: 80),
                       child: Row(
                         children: [
-                          Text("Already have an account?"),
+                          Text("Already have an account?", style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255))),
                           TextButton(
                             onPressed: (){
                               Navigator.pushNamed(context, "/login_screen");
                             }, 
                             child: 
-                              Text('Log In', style: TextStyle(color: Colors.blue),)
+                              Text('Log In', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),)
                             )
                         ],
                       ),
@@ -237,6 +268,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ),
     );
   }
+
   // To validate  the email 
   void validateEmail(String val) {
     if(val.isEmpty){
@@ -246,6 +278,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }else if(!EmailValidator.validate(val, true)){
       setState(() {
         _errorMessage = "Invalid Email Address";
+      });
+    }else{
+      setState(() {
+        _errorMessage = "";
+      });
+    }
+  }
+
+  // To validate username
+  void validateUserName(String u) {
+    if(u.isEmpty){
+  setState(() {
+    _errorMessage = "Username can't be empty...";
+  });
+    }else if(!EmailValidator.validate(u, true)){
+      setState(() {
+        return null;
+      });
+    }else{
+      setState(() {
+        _errorMessage = "";
+      });
+    }
+  }
+
+  // To validate password 
+  void validatePassword(String pw) {
+    if(pw.isEmpty){
+  setState(() {
+    _errorMessage = "Password can have at least 6 char...";
+  });
+    }else if(!EmailValidator.validate(pw, true)){
+      setState(() {
+        return null;
       });
     }else{
       setState(() {
