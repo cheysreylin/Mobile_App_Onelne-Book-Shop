@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/Cards/card.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
-import 'package:projecttesting/Pages/ProfilesError/profile.dart';
-import 'package:projecttesting/Pages/ProfilesError/userProfile.dart';
+import 'package:projecttesting/Pages/UserProfile/userProfile.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 
 import '../FiltersBook/search_loadind.dart';
@@ -33,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       HomeMenuBar(settingsController: widget.settingsController, l: widget,),
       EventPage(),
       CardPage(),
-      UserProfile()
+     UserProfile()
     ];
      
 

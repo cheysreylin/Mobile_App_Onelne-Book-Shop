@@ -22,7 +22,7 @@ class Author extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
-          height: 996,
+          height: 940,
           color: Color.fromARGB(255, 255, 255, 255),
           child: Column(
             children: 
@@ -57,7 +57,7 @@ class Author extends StatelessWidget {
                       }),
                       child: Card(
                         elevation: 7,
-                        color: Color.fromARGB(255, 236, 236, 236),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         child: Container(
                           height: 70,
                           width: 130,
@@ -147,7 +147,7 @@ class Author extends StatelessWidget {
                       }),
                       child: Card(
                         elevation: 7,
-                        color: Color.fromARGB(255, 236, 236, 236),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         child: Container(
                           height: 70,
                           width: 130,
@@ -237,7 +237,7 @@ class Author extends StatelessWidget {
                       }),
                       child: Card(
                         elevation: 7,
-                        color: Color.fromARGB(255, 236, 236, 236),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         child: Container(
                           height: 70,
                           width: 130,
@@ -328,7 +328,7 @@ class Author extends StatelessWidget {
                       }),
                       child: Card(
                         elevation: 7,
-                        color: Color.fromARGB(255, 236, 236, 236),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         child: Container(
                           height: 70,
                           width: 130,

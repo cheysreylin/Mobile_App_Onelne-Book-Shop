@@ -192,75 +192,74 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
         
               // Log in container
-              Container(
-                child: Column(
-                  children: [
-                    TextButton(
-                      onPressed: () async{
-                        User? user = await createUserWithEmailAndPassword(
-                          name: _userNameTextController.text, 
-                          email: _emailTextController.text, 
-                          password: _passwordTextController.text, 
-                          contect: context);
-                          if (user != null){
-                            Navigator.pushNamed(context, "/HomeScreen");
-                          }else{
-                            print(user.toString());
-                            _userNameTextController.clear();
-                            _passwordTextController.clear();
-                            _emailTextController.clear();
-                            Navigator.pop(context);
-                          }
-                      }, 
-                      child: Container(
-                        color: Colors.blue,
-                        padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 150),
-                        child: const Text(
-                          'Register',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 255, 255, 255),
-                            fontSize: 15
-                          ),
+              Column(
+                children: [
+                  TextButton(
+                    onPressed: () async{
+                      User? user = await createUserWithEmailAndPassword(
+                        name: _userNameTextController.text, 
+                        email: _emailTextController.text, 
+                        password: _passwordTextController.text, 
+                        contect: context);
+                        if (user != null){
+                          Navigator.pushNamed(context, "/HomeScreen");
+                        }
+                        else{
+                          print(user.toString());
+                          _userNameTextController.clear();
+                          _passwordTextController.clear();
+                          _emailTextController.clear();
+                          Navigator.pop(context);
+                        }
+                    }, 
+                    child: Container(
+                      color: Colors.blue,
+                      padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 150),
+                      child: const Text(
+                        'Register',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontSize: 15
                         ),
-                      )
-                    ), 
-                    Container(
-                      margin: EdgeInsets.only(left: 80),
-                      child: Row(
-                        children: [
-                          Text("Already have an account?", style: TextStyle(
-                            color: Color.fromARGB(255, 255, 255, 255))),
-                          TextButton(
-                            onPressed: (){
-                              Navigator.pushNamed(context, "/login_screen");
-                            }, 
-                            child: 
-                              Text('Log In', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),)
-                            )
-                        ],
                       ),
+                    )
+                  ), 
+                  Container(
+                    margin: EdgeInsets.only(left: 80),
+                    child: Row(
+                      children: [
+                        Text("Already have an account?", style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255))),
+                        TextButton(
+                          onPressed: (){
+                            Navigator.pushNamed(context, "/login_screen");
+                          }, 
+                          child: 
+                            Text('Log In', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),)
+                          )
+                      ],
                     ),
-                    // Container(
-                    //   child: Column(
-                    //     children: [
-                    //       Text('Or connect with'),
-                    //       Container(
-                    //         child: Row(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             IconButton(onPressed: (){}, icon: Icon(Icons.facebook,color: Colors.blue,)),
-                    //             IconButton(onPressed: (){}, icon: Icon(Icons.facebook,color: Colors.blue,)),
-                    //             // Image.network('http://pngimg.com/uploads/google/google_PNG19635.png',
-                    //             //   width: 30, height: 30),
-                    //             IconButton(onPressed: (){}, icon: Icon(Icons.home,color: Colors.grey), iconSize: 27),
-                    //           ],
-                    //         ),
-                    //       )
-                    //     ],
-                    //   ),
-                    // )
-                  ],
-                ),
+                  ),
+                  // Container(
+                  //   child: Column(
+                  //     children: [
+                  //       Text('Or connect with'),
+                  //       Container(
+                  //         child: Row(
+                  //           mainAxisAlignment: MainAxisAlignment.center,
+                  //           children: [
+                  //             IconButton(onPressed: (){}, icon: Icon(Icons.facebook,color: Colors.blue,)),
+                  //             IconButton(onPressed: (){}, icon: Icon(Icons.facebook,color: Colors.blue,)),
+                  //             // Image.network('http://pngimg.com/uploads/google/google_PNG19635.png',
+                  //             //   width: 30, height: 30),
+                  //             IconButton(onPressed: (){}, icon: Icon(Icons.home,color: Colors.grey), iconSize: 27),
+                  //           ],
+                  //         ),
+                  //       )
+                  //     ],
+                  //   ),
+                  // )
+                ],
               ),
             ],
             ),

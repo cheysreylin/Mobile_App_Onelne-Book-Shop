@@ -67,10 +67,16 @@ class _LoginScreenState extends State<LoginScreen> {
     TextEditingController _emailController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
 
-    return Container(
-      child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: SingleChildScrollView(
+    return Scaffold(
+      // backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      body: Container(
+        height: 900,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color.fromARGB(255, 141, 174, 211), Color.fromARGB(255, 28, 82, 82)],
+            )
+          ),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               // logo container 
@@ -93,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         'Log In Now',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 49, 49, 49),
+                          color: Color.fromARGB(255, 238, 238, 238),
                           fontWeight: FontWeight.bold,
                           fontSize: 20
                         ),
@@ -102,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         'Please log in to continue using our app', 
                         style: TextStyle(
-                          color: Color.fromARGB(255, 128, 128, 128)
+                          color: Color.fromARGB(255, 240, 240, 240)
                         ),
                         )
                     ],
@@ -141,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       padding: EdgeInsets.fromLTRB(238, 0, 0, 0),
                       child: TextButton(
-                        style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Color.fromARGB(255, 255, 255, 255))),
+                        //style: ButtonStyle(backgroundColor:MaterialStatePropertyAll(Color.fromARGB(255, 175, 175, 175))),
                         child: Text('Forgot Password?', style: TextStyle( fontSize: 11, color: Color.fromARGB(255, 41, 85, 230)),) ,
                         onPressed: (() {
                           // FirebaseAuth.instance
@@ -166,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         User? user = await loginUsingEmailPassword(email: _emailController.text, password: _passwordController.text, context: context);
                         print(user);
                         if(user != null){
-                          Navigator.pushNamed(context, "/HomeScreen");
+                          Navigator.pushNamed(context, "/Home_screen");
                         }
                       }, 
                       child: Container(
@@ -191,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               Navigator.pushNamed(context, "/Register_screen");
                             }, 
                             child: 
-                              Text('Sign Up', style: TextStyle(color: Colors.blue),)
+                              Text('Sign Up', style: TextStyle(color: Color.fromARGB(255, 23, 151, 255), fontWeight: FontWeight.bold),)
                             )
                         ],
                       ),

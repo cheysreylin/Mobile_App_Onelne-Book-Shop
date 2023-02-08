@@ -11,7 +11,8 @@ class DatabaseManager {
         .doc(uid)
         .set({
           'name': name, 
-          'email': email
+          'email': email,
+          'uid' : uid,
       });
   }
 

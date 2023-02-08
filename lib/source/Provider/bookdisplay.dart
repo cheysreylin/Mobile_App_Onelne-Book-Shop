@@ -12,6 +12,8 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../Pages/DetailPage/provider/favouriteProvider.dart';
+
 class bookdisplay extends StatefulWidget {
   var d;
   bookdisplay({@required this.d});
@@ -144,20 +146,27 @@ class _bookdisplayState extends State<bookdisplay> {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
-      backgroundColor: Color(0xfff012ac0),
+     backgroundColor: Color.fromARGB(255, 150, 173, 189),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 25.0),
-        child: ElevatedButton(
-          onPressed: () async {
-            await launchUrl(
-                Uri.parse(widget.d["items"][0]["accessInfo"]["webReaderLink"]));
-          },
-          // splashColor: Colors.grey,
-          // color: Colors.black,
-          child: Text(
-            "READ BOOK",
-            style: TextStyle(color: Colors.white),
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SizedBox(
+              width: 250,
+              height: 50.0, 
+              child: ElevatedButton(
+                onPressed: () async {
+                  await launchUrl(
+                  Uri.parse(widget.d["items"][0]["accessInfo"]["webReaderLink"])
+                );}, child: Text("Add to Card"),
+              ),
+            ),
+            SizedBox(
+              child: AddToFavourite(),
+            )
+          ],
+          
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -192,28 +201,28 @@ class _bookdisplayState extends State<bookdisplay> {
                       "DETAILS",
                       style: GoogleFonts.lato(
                           textStyle:
-                              TextStyle(color: Colors.white, fontSize: 16)),
+                              TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
                     ),
-                    GestureDetector(
-                      onTap: () async {
-                        try {
-                          var url = widget.d["items"][0]["accessInfo"]["epub"]
-                              ["isAvailable"];
-                          if (url == true) {
-                            url = widget.d["items"][0]["accessInfo"]["epub"]
-                                ["acsTokenLink"];
-                            await launchUrl(Uri.parse(url));
-                          }
-                        } catch (e) {
-                          print("Not available");
-                        }
-                      },
-                      child: Icon(
-                        Icons.download_outlined,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                    )
+                    // GestureDetector(
+                    //   onTap: () async {
+                    //     try {
+                    //       var url = widget.d["items"][0]["accessInfo"]["epub"]
+                    //           ["isAvailable"];
+                    //       if (url == true) {
+                    //         url = widget.d["items"][0]["accessInfo"]["epub"]
+                    //             ["acsTokenLink"];
+                    //         await launchUrl(Uri.parse(url));
+                    //       }
+                    //     } catch (e) {
+                    //       print("Not available");
+                    //     }
+                    //   },
+                    //   child: Icon(
+                    //     Icons.download_outlined,
+                    //     color: Colors.white,
+                    //     size: 30,
+                    //   ),
+                    // )
                   ],
                 ),
               ),
@@ -245,20 +254,22 @@ class _bookdisplayState extends State<bookdisplay> {
                         SizedBox(
                           height: 10,
                         ),
-                        Text(
-                          widget.d["items"][0]["volumeInfo"]["title"],
-                          style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                  fontSize: 23,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold)),
+                        Center(
+                          child: Text(
+                            widget.d["items"][0]["volumeInfo"]["title"],
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 23,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold)),
+                          ),
                         ),
                         Text(
                           "by " +
                               widget.d["items"][0]["volumeInfo"]["authors"][0],
                           style: GoogleFonts.lato(
                               textStyle: TextStyle(
-                                  fontSize: 15, color: Colors.grey[400])),
+                                  fontSize: 15, color: Color.fromARGB(255, 226, 226, 226))),
                         ),
                         SizedBox(
                           height: 20,
@@ -273,7 +284,7 @@ class _bookdisplayState extends State<bookdisplay> {
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
                                           fontSize: 15,
-                                          color: Colors.grey[400])),
+                                          color: Color.fromARGB(255, 226, 226, 226))),
                                 ),
                                 SizedBox(
                                   height: 5,
@@ -295,7 +306,7 @@ class _bookdisplayState extends State<bookdisplay> {
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
                                           fontSize: 15,
-                                          color: Colors.grey[400])),
+                                          color: Color.fromARGB(255, 226, 226, 226))),
                                 ),
                                 SizedBox(
                                   height: 5,
@@ -317,7 +328,7 @@ class _bookdisplayState extends State<bookdisplay> {
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
                                           fontSize: 15,
-                                          color: Colors.grey[400])),
+                                          color: Color.fromARGB(255, 226, 226, 226))),
                                 ),
                                 SizedBox(
                                   height: 5,
@@ -339,7 +350,7 @@ class _bookdisplayState extends State<bookdisplay> {
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
                                           fontSize: 15,
-                                          color: Colors.grey[400])),
+                                          color: Color.fromARGB(255, 226, 226, 226))),
                                 ),
                                 SizedBox(
                                   height: 5,
@@ -388,7 +399,7 @@ class _bookdisplayState extends State<bookdisplay> {
                             Text(
                               desc,
                               style: GoogleFonts.lato(
-                                  color: Colors.grey[600], fontSize: 15),
+                                  color: Colors.grey[600], fontSize: 17),
                             )
                           ],
                         ),

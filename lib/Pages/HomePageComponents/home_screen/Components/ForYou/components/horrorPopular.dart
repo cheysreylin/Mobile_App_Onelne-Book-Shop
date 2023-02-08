@@ -13,6 +13,7 @@ class horrorPopular extends StatefulWidget {
 class _horrorPopularState extends State<horrorPopular> {
   var rating = "Not available";
   var pubdate = "Not available";
+  late bool _isloading;
 
   String st(String s) {
     int count = 0;
@@ -34,6 +35,14 @@ class _horrorPopularState extends State<horrorPopular> {
     // TODO: implement initState
     super.initState();
     getpubdate();
+
+    _isloading = true;
+    Future.delayed(const Duration(seconds: 8), (){
+      setState(() {
+        _isloading = false;
+      });
+    });
+    super.initState();
   }
  
   // get publish date 
@@ -75,6 +84,11 @@ class _horrorPopularState extends State<horrorPopular> {
               padding: const EdgeInsets.only(bottom: 11.0),
               child: Column( 
                 children: [
+                  _isloading
+                  ? const Center(
+                    child: CircularProgressIndicator(color: Colors.black,),
+                  ):
+
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: GestureDetector(

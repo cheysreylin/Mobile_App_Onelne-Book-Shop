@@ -1,5 +1,7 @@
 import 'dart:ui';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:projecttesting/Pages/Authentication/ResetPassword/resetPassword.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 import 'package:projecttesting/settings/settings_service.dart';
 import 'Pages/Authentication/RegisterPage/registerScreen.dart';
@@ -9,8 +11,9 @@ import 'Theme/themeProvider.dart';
 
 Future<void> main() async {
   final settingsController = SettingsController(SettingsService());
-
   await settingsController.loadSettings();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(); //initilization of Firebase app
   runApp(MyApp(settingsController: settingsController));
 }
 
@@ -40,8 +43,8 @@ class MyApp extends StatelessWidget {
         //       builder: (BuildContext context) {
         //         switch (routeSettings.name) {
         //           default:
-        //             return HomeScreen(
-        //               settingsController: settingsController,
+        //             return Register(
+        //              //settingsController: settingsController,
         //             );
         //         }
         //       },
@@ -51,13 +54,13 @@ class MyApp extends StatelessWidget {
         routes: {
           '/' : (context) => HomeScreen(settingsController: settingsController,),
           //'/' : (context) => LoadingScreen(),
-          //'/' : (context) => LogIn(),
-          //'/' : (context) => Register(),
+          //'/' : (context) => LogIn(key: key,),
+          //'/' : (context) => Register(key: key,),
           // '/' : (context) => EventPage(),
-          '/Homescreen' : (context) => HomeScreen(settingsController: settingsController,),
-          '/login_screen' :(context) => LogIn(),
+          '/Home_screen' : (context) => HomeScreen(settingsController: settingsController,),
+          '/login_screen' :(context) => LogIn(key: key,),
           '/Register_screen' :(context) => Register(),
-          // '/ResetPasswordScreen' :(context) => ResetPassword(),
+          '/ResetPasswordScreen' :(context) => ResetPassword(key: key,),
           // '/detailScreen' :(context) => BookDetail(),
         },
       );

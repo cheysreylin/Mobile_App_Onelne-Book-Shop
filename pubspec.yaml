@@ -58,6 +58,7 @@ dependencies:
   rounded_loading_button: ^2.1.0
   basic_utils: ^5.4.2
   fluttertoast: ^8.1.2
+  media: ^0.0.2
   # google_sign_in: ^5.4.4
   # the_apple_sign_in: ^1.1.1
   # intl: ^0.17.0

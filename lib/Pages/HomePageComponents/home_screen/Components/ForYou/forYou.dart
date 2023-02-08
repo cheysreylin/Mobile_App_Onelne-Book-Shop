@@ -91,7 +91,7 @@ class _ForYouState extends State<ForYou> {
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                 ),
               ),
               SizedBox(
@@ -109,7 +109,6 @@ class _ForYouState extends State<ForYou> {
                 ],
               ),
 
-              
               // TO FETCH MOCK UP API ONLY 
 
               // Flexible(
@@ -191,7 +190,6 @@ class _ForYouState extends State<ForYou> {
               //             ),
               //           ),
               //         );
-              
               //     }
               //   )),
               // ),    
