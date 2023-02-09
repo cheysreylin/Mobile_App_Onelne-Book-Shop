@@ -85,7 +85,7 @@ class _TopChartState extends State<TopChart> {
                           children: [
                             Text(
                               "Adventure",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Color.fromARGB(255, 51, 51, 51)),
                             ),
                           ],
                         ),
@@ -103,7 +103,7 @@ class _TopChartState extends State<TopChart> {
                           children: [
                             Text(
                               "Fantasy",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Color.fromARGB(255, 51, 51, 51)),
                             ),
                           ],
                         ),
@@ -124,7 +124,7 @@ class _TopChartState extends State<TopChart> {
                           children: [
                             Text(
                               "Horror",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Color.fromARGB(255, 51, 51, 51)),
                             ),
                           ],
                         ),
@@ -142,7 +142,7 @@ class _TopChartState extends State<TopChart> {
                           children: [
                             Text(
                               "Health",
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Color.fromARGB(255, 51, 51, 51)),
                             ),
                           ],
                         ),

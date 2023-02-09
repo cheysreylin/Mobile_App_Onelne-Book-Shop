@@ -122,18 +122,23 @@ class _horrorPopularState extends State<horrorPopular> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  (widget.HorrorPopular["items"][index + 1]["volumeInfo"]
-                                                  ["title"])
-                                              .length >
-                                          20
-                                      ? st(widget.HorrorPopular["items"][index + 1]["volumeInfo"]
-                                          ["title"])
-                                      : widget.HorrorPopular["items"][index + 1]["volumeInfo"]
-                                          ["title"],
-                                  style: TextStyle(
-                                      color: Colors.grey[900],
-                                      fontWeight: FontWeight.bold),
+                                Center(
+                                  child: Text(
+                                    (widget.HorrorPopular["items"][index + 1]["volumeInfo"]
+                                                    ["title"])
+                                                .length >
+                                            20
+                                        ? st(widget.HorrorPopular["items"][index + 1]["volumeInfo"]
+                                            ["title"])
+                                        : widget.HorrorPopular["items"][index + 1]["volumeInfo"]
+                                            ["title"],maxLines: 1,
+                                    style: TextStyle(
+                                        color: Colors.grey[900],
+                                        fontWeight: FontWeight.bold),
+                                        overflow: TextOverflow.ellipsis,
+                                  ),
+                                  
+
                                 ),
                                 Text(
                                   "by " +

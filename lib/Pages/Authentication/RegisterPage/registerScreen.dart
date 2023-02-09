@@ -155,7 +155,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.verified_user),
+                          prefixIcon: Icon(Icons.email),
                           label: Text('Email', style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255))
                           ),

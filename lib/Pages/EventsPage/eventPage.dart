@@ -8,6 +8,7 @@ class EventPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        margin: EdgeInsets.only(top: 20),
         height: 1600,
         child: Padding(
           padding: const EdgeInsets.all(12.0),

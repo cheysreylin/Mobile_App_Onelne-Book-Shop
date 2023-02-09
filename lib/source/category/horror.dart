@@ -65,18 +65,20 @@ class _horrorState extends State<horror> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            (widget.c3["items"][index + 1]["volumeInfo"]
-                                            ["title"])
-                                        .length >
-                                    20
-                                ? st(widget.c3["items"][index + 1]["volumeInfo"]
-                                    ["title"])
-                                : widget.c3["items"][index + 1]["volumeInfo"]
-                                    ["title"],
-                            style: TextStyle(
-                                color: Colors.grey[900],
-                                fontWeight: FontWeight.bold),
+                          Center(
+                            child: Text(
+                              (widget.c3["items"][index + 1]["volumeInfo"]
+                                              ["title"])
+                                          .length >
+                                      20
+                                  ? st(widget.c3["items"][index + 1]["volumeInfo"]
+                                      ["title"])
+                                  : widget.c3["items"][index + 1]["volumeInfo"]
+                                      ["title"],
+                              style: TextStyle(
+                                  color: Colors.grey[900],
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
                       ),

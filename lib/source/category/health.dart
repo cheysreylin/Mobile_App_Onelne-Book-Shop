@@ -68,18 +68,20 @@ class _romanceState extends State<romance> {
                           SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            (widget.c4["items"][index + 1]["volumeInfo"]
-                                            ["title"])
-                                        .length >
-                                    20
-                                ? st(widget.c4["items"][index + 1]["volumeInfo"]
-                                    ["title"])
-                                : widget.c4["items"][index + 1]["volumeInfo"]
-                                    ["title"],
-                            style: TextStyle(
-                                color: Colors.grey[900],
-                                fontWeight: FontWeight.bold),
+                          Center(
+                            child: Text(
+                              (widget.c4["items"][index + 1]["volumeInfo"]
+                                              ["title"])
+                                          .length >
+                                      20
+                                  ? st(widget.c4["items"][index + 1]["volumeInfo"]
+                                      ["title"])
+                                  : widget.c4["items"][index + 1]["volumeInfo"]
+                                      ["title"],
+                              style: TextStyle(
+                                  color: Colors.grey[900],
+                                  fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
                       ),

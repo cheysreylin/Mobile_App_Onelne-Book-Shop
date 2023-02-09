@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/Authentication/ResetPassword/resetPassword.dart';
+import 'package:projecttesting/Pages/UserProfile/components/profile_controller.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 import 'package:projecttesting/settings/settings_service.dart';
 import 'Pages/Authentication/RegisterPage/registerScreen.dart';

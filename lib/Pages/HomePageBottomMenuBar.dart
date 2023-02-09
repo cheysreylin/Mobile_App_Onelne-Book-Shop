@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:projecttesting/Pages/Cards/card.dart';
+import 'package:projecttesting/Pages/Favourite/FavouriteCard.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
 import 'package:projecttesting/Pages/UserProfile/userProfile.dart';
