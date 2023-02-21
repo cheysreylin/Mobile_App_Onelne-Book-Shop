@@ -110,7 +110,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                     image: DecorationImage(
                                         fit: BoxFit.cover,
                                         image: const NetworkImage(
-                                          "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/285503586_754902092305847_7887579387144157022_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=TaJshcOby5wAX9NQmKI&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfCZvm0pmwsBsw96lixCp5Ra_XlrkOPGpVsmE7Tf5qlQqA&oe=63E961C7",
+                                          "https://scontent.fpnh10-1.fna.fbcdn.net/v/t39.30808-6/331913018_588776019933807_7748293852965503987_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeHLRFGHtO8FBbfMYC6G75ckHBLtPCrK_G8cEu08Ksr8b22-8cfB0zkbEJkA3LlTMubkGZBu0jnhQGCTwVWZ4_I0&_nc_ohc=AF8HCcnNsecAX8xs90w&tn=lJ0pPcLeap4ftvp9&_nc_ht=scontent.fpnh10-1.fna&oh=00_AfCcpwkcRebK146pIRyUr-5rVVQWG6IOCougltLF9ENu8Q&oe=63F736EF",
                                     )
                                   )
                                 ),
@@ -183,7 +183,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                           Row(
                                             children: [
                                               Icon(Icons.email),
-                                              SizedBox(width: 20,),
+                                              SizedBox(width: 15,),
                                               Text("Email"), 
                                               SizedBox(width: 100,),
                                               Text(data["email"], style: TextStyle(color: Color.fromARGB(255, 20, 20, 20)),),

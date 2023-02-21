@@ -202,7 +202,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         password: _passwordTextController.text, 
                         contect: context);
                         if (user != null){
-                          Navigator.pushNamed(context, "/HomeScreen");
+                          Navigator.pushNamed(context, "/Home_screen");
                         }
                         else{
                           print(user.toString());

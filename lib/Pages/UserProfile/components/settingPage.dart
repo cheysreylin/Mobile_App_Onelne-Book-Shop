@@ -1,6 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projecttesting/Pages/Authentication/RegisterPage/registerScreen.dart';
+import 'package:projecttesting/Pages/UserProfile/components/aboutUs.dart';
+import 'package:projecttesting/Pages/UserProfile/components/privacy.dart';
+import 'package:projecttesting/Pages/UserProfile/components/service.dart';
+import 'package:projecttesting/Pages/loadingScreen/LoadingScreen.dart';
 
 import '../../Authentication/loginPage/login_screen.dart';
 
@@ -10,7 +15,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  TextEditingController pwController = TextEditingController();
+  // TextEditingController pwController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +67,121 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "About Us"),
-            buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Term of service"),
-            buildAccountOptionRow(context, "Privacy and security"),
+            Card(
+              elevation: 3,
+              child: buildAccountOptionRow(context, "Change password")
+            ),
+            SizedBox(
+            height: 8,
+            ),
+            Card(
+              elevation: 3,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("About Us",
+                       style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromARGB(255, 95, 95, 95),
+                      ),),
+                    ),
+                    IconButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AboutUsPage()),
+                        );
+                      }, 
+                      icon: Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Color.fromARGB(255, 105, 105, 105),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Card(
+              elevation: 3,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Term of Services",
+                       style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromARGB(255, 95, 95, 95),
+                      ),),
+                    ),
+                    IconButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TermService()),
+                        );
+                      }, 
+                      icon: Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Color.fromARGB(255, 105, 105, 105),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Card(
+              elevation: 3,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Privacy and Security", 
+                       style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromARGB(255, 95, 95, 95),
+                      ),),
+                    ),
+                    IconButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PrivacySecurity()),
+                        );
+                      }, 
+                      icon: Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: Icon(
+                        Icons.keyboard_arrow_right,
+                        color: Color.fromARGB(255, 105, 105, 105),
+                      ),
+                    ),
+                    )
+                  ],
+                ),
+              ),
+            ),
             SizedBox(
               height:30,
             ),
@@ -75,10 +191,16 @@ class _SettingsPageState extends State<SettingsPage> {
               child: ElevatedButton(
                 child: const Text('Log out', style: TextStyle(fontSize: 18),),
                 onPressed: () {
+                  // Navigator.push(
+                  //   context, 
+                  //   MaterialPageRoute(
+                  //     builder: ((context) => LoadingScreen())
+                  //   )
+                  // );
                   FirebaseAuth.instance.signOut().then((value) {
                     print("Signed Out");
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LogIn()));
+                        MaterialPageRoute(builder: (context) => Register()));
                   });
                 },
                 style: ElevatedButton.styleFrom(
@@ -126,10 +248,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      controller: pwController,
+                      controller: _emailController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Enter new password...',
+                        labelText: 'Enter your email to reset password',
                       ),
                     ),
                     SizedBox(
@@ -140,15 +262,22 @@ class _SettingsPageState extends State<SettingsPage> {
                       children: [
                         ElevatedButton(
                           child: const Text('Cancel'),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
                           style: ElevatedButton.styleFrom(
                             primary: Color.fromARGB(255, 202, 202, 202),
                             //onPrimary: Colors.black,
                           ),
                         ),
                         ElevatedButton(
-                          child: const Text('Save'),
-                          onPressed: () {},
+                          child: const Text('Send'),
+                          onPressed: (() {
+                            FirebaseAuth.instance
+                              .sendPasswordResetEmail(email: _emailController.text)
+                              .then((value) => Navigator.of(context).pop());
+                              _emailController.clear();
+                          }), 
                           style: ElevatedButton.styleFrom(
                             primary: Color.fromARGB(255, 57, 116, 226),
                             //onPrimary: Colors.black,
@@ -158,13 +287,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     )
                   ],
                 ),
-                actions: [
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text("Close")),
-                ],
               );
             });
       },
@@ -173,17 +295,23 @@ class _SettingsPageState extends State<SettingsPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey[600],
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                  color: Color.fromARGB(255, 95, 95, 95),
+                ),
               ),
             ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey,
+            Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Icon(
+                Icons.keyboard_arrow_right,
+                color: Color.fromARGB(255, 105, 105, 105),
+              ),
             ),
           ],
         ),

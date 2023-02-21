@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projecttesting/Pages/Favourite/FavouriteCard.dart';
 import 'package:projecttesting/Pages/EventsPage/eventPage.dart';
 import 'package:projecttesting/Pages/HomePageComponents/HomeMenuBar.dart';
+import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/ForYou/components/horrorPopular.dart';
 import 'package:projecttesting/Pages/UserProfile/userProfile.dart';
 import 'package:projecttesting/settings/settings_controller.dart';
 
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       HomeMenuBar(settingsController: widget.settingsController, l: widget,),
       EventPage(),
       CardPage(),
-     UserProfile()
+      UserProfile()
     ];
      
 
@@ -56,51 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.fromLTRB(0, 2, 0, 10),
         child: Scaffold(
           resizeToAvoidBottomInset: false, 
-          //  appBar: AppBar(
-          //   backgroundColor: Color.fromARGB(255, 235, 235, 235),
-            
-            //   iconTheme: IconThemeData(color: Color.fromARGB(255, 68, 68, 68)),
-            //   //backgroundColor: Color.fromARGB(255, 255, 255, 255),
-            //   elevation: 0,
-            //   title: TextField(
-            //     controller: _searchController,
-            //     decoration: InputDecoration(
-            //       // fill
-            //       // fillColor: Theme.of(context).colorScheme.seconed: true,dary,
-            //       //iconColor: Color.fromARGB(255, 219, 42, 42),
-                  
-            //       prefixIcon: const Icon(Icons.search),
-            //       suffixIcon: IconButton(
-            //         onPressed: (){
-            //           this.setState(() {
-            //             _searchController.clear();
-            //           });
-            //         }, 
-            //         icon: Icon(Icons.clear),
-            //       ),
-            //       hintText: 'Search...',
-            //       border: OutlineInputBorder(
-            //         borderRadius: BorderRadius.circular(35),
-            //         borderSide: BorderSide.none),
-            //       ),
-            //   ),
-            //   actions: 
-            //     [
-            //       IconButton(
-            //         onPressed: () {
-            //           widget.settingsController.updateThemeMode(
-            //               widget.settingsController.themeMode == ThemeMode.light
-            //                   ? ThemeMode.dark
-            //                   : ThemeMode.light);
-            //         },
-            //         icon: Icon(widget.settingsController.themeMode == ThemeMode.light
-            //             ? Icons.dark_mode_rounded
-            //             : Icons.light_mode_rounded),
-            //       )
-            //     ]
-            //  ),         
-           
-
+          
           body: Container(
               child: _widgetOptions.elementAt(_selectedIndex),
           ),
@@ -122,12 +79,12 @@ class _HomeScreenState extends State<HomeScreen> {
               BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 icon: Icon(Icons.event),
-                label: 'Event',
+                label: 'Events',
               ),
               BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                icon: Icon(Icons.favorite_outline),
-                label: 'Favourite',
+                icon: Icon(Icons.card_giftcard),
+                label: 'Card',
               ),
               BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,

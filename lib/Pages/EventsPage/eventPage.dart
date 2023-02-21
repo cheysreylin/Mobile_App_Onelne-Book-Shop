@@ -17,13 +17,13 @@ class EventPage extends StatelessWidget {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(155, 12, 0,0),
-                    child: Text("New", 
-                      textAlign: TextAlign.end,
+                    padding: const EdgeInsets.fromLTRB(70, 12, 0,0),
+                    child: Text("Up Coming Events", 
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 61, 61, 61)
+                        color: Color.fromARGB(255, 82, 82, 82)
                       ),
                     ),
                   )
@@ -47,6 +47,7 @@ class EventPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  
                   SizedBox(height: 6,),
                   Card(
                     elevation: 10,
@@ -56,7 +57,7 @@ class EventPage extends StatelessWidget {
                         children: [
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing"),
                           //Text("4/25/2021"),
-                          Image.asset("assets/events_bookImg/harry-potter.jpg", height: 240, width: 360,),
+                          Image.asset("assets/events_bookImg/jumanji-the-next-level-.jpg", height: 240, width: 360,),
                           Text("Location : Phnom Penh City of Cambodia, Aeon mall 2, second floor"),
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing..."),
                         ],
@@ -72,7 +73,7 @@ class EventPage extends StatelessWidget {
                         children: [
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing"),
                           //Text("4/25/2021"),
-                          Image.asset("assets/events_bookImg/harry-potter.jpg", height: 240, width: 360,),
+                          Image.asset("assets/events_bookImg/spiderman3.jpg", height: 240, width: 360,),
                           Text("Location : Phnom Penh City of Cambodia, Aeon mall 2, second floor"),
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing..."),
                         ],
@@ -88,7 +89,7 @@ class EventPage extends StatelessWidget {
                         children: [
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing"),
                           //Text("4/25/2021"),
-                          Image.asset("assets/events_bookImg/harry-potter.jpg", height: 240, width: 360,),
+                          Image.asset("assets/events_bookImg/Luca.jpg", height: 240, width: 360,),
                           Text("Location : Phnom Penh City of Cambodia, Aeon mall 2, second floor"),
                           Text("JK. Rowling singing event on book Harry Potter series with Fantastic beast poster signing..."),
                         ],

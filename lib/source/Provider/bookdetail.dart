@@ -146,27 +146,29 @@ class _bookdisplayState extends State<bookdisplay> {
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
-     backgroundColor: Color.fromARGB(255, 150, 173, 189),
+     backgroundColor: Color.fromARGB(255, 218, 185, 188),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 25.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            SizedBox(
-              width: 250,
-              height: 50.0, 
-              child: ElevatedButton(
-                onPressed: () async {
-                  await launchUrl(
-                  Uri.parse(widget.d["items"][0]["accessInfo"]["webReaderLink"])
-                );}, child: Text("Add to Card"),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(
+                width: 265,
+                height: 50.0, 
+                child: ElevatedButton(
+                  onPressed: () async {
+                    await launchUrl(
+                    Uri.parse(widget.d["items"][0]["accessInfo"]["webReaderLink"])
+                  );}, child: Text("Add to Card", style: TextStyle(fontSize: 16),),
+                ),
               ),
-            ),
-            SizedBox(
-              child: AddToFavourite(),
-            )
-          ],
-          
+              SizedBox(
+                child: AddToFavourite(),
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -374,35 +376,41 @@ class _bookdisplayState extends State<bookdisplay> {
             Expanded(
                 flex: 2,
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.white),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(45),
+                                        topRight: Radius.circular(45),
+                                      ),
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                          child: Padding(
+                        child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 28.0, vertical: 25),
-                        child: ListView(
-                          children: [
-                            Text(
-                              "What's it about?",
-                              style: GoogleFonts.lato(
-                                  textStyle: TextStyle(
-                                color: Colors.grey[900],
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                              )),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              desc,
-                              style: GoogleFonts.lato(
-                                  color: Colors.grey[600], fontSize: 17),
-                            )
-                          ],
-                        ),
+                          horizontal: 28.0, vertical: 25),
+                          child: ListView(
+                            children: [
+                              Text(
+                                "Book's Plot",
+                                style: GoogleFonts.lato(
+                                    textStyle: TextStyle(
+                                  color: Color.fromARGB(255, 37, 37, 37),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                )),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                desc,
+                                style: GoogleFonts.lato(
+                                    color: Colors.grey[600], fontSize: 17),
+                              )
+                            ],
+                          ),
                       ))
                     ],
                   ),

@@ -59,7 +59,7 @@ class _searchfilterState extends State<searchfilter> {
         body: Column(
           children: [
             Container(
-              color: Colors.black,
+              color: Color.fromARGB(255, 255, 255, 255),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
@@ -74,20 +74,20 @@ class _searchfilterState extends State<searchfilter> {
                       },
                       child: Icon(
                         Icons.arrow_back,
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 54, 54, 54),
                       ),
                     ),
                     Text(
                       "RESULT",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 46, 46, 46),
                           fontWeight: FontWeight.bold,
                           fontSize: 15),
                     ),
                     Text(
                       "..",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 44, 44, 44),
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     )
@@ -111,7 +111,7 @@ class _searchfilterState extends State<searchfilter> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Color(0xfff012AC0),
+                            color: Color.fromARGB(255, 243, 243, 243),
                             image: DecorationImage(
                                 opacity: 0.4,
                                 image: AssetImage("assets/overlay.png"),
@@ -153,7 +153,7 @@ class _searchfilterState extends State<searchfilter> {
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.lato(
                                         textStyle: TextStyle(
-                                            color: Colors.white,
+                                            color: Color.fromARGB(255, 99, 99, 99),
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -176,7 +176,7 @@ class _searchfilterState extends State<searchfilter> {
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.lato(
                                         textStyle: TextStyle(
-                                            color: Colors.grey[400],
+                                            color: Color.fromARGB(255, 160, 160, 160),
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold)),
                                   ),
@@ -191,7 +191,7 @@ class _searchfilterState extends State<searchfilter> {
                                           .toString()),
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
-                                          color: Colors.grey[400],
+                                          color: Color.fromARGB(255, 160, 160, 160),
                                           fontSize: 12,
                                           fontWeight: FontWeight.bold)),
                                 ),
@@ -210,7 +210,7 @@ class _searchfilterState extends State<searchfilter> {
                                               .toString()),
                                   style: GoogleFonts.lato(
                                       textStyle: TextStyle(
-                                          color: Colors.grey[400],
+                                          color: Color.fromARGB(255, 160, 160, 160),
                                           fontSize: 12,
                                           fontWeight: FontWeight.bold)),
                                 ),

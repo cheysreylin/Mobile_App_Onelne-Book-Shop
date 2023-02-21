@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart';
-import 'package:projecttesting/source/Provider/bookdisplay.dart';
+import 'package:projecttesting/source/Provider/bookdetail.dart';
 
 class bookloading extends StatefulWidget {
   var c;

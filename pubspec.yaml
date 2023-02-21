@@ -45,7 +45,6 @@ dependencies:
   shared_preferences: ^2.0.17
   email_validator: ^2.1.17
   http: ^0.13.5
-  url_launcher: ^6.1.8
   path_provider: ^2.0.12
   google_fonts: ^4.0.3
   dio: ^4.0.6
@@ -59,6 +58,7 @@ dependencies:
   basic_utils: ^5.4.2
   fluttertoast: ^8.1.2
   media: ^0.0.2
+  url_launcher: ^6.1.9
   # google_sign_in: ^5.4.4
   # the_apple_sign_in: ^1.1.1
   # intl: ^0.17.0
@@ -88,6 +88,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/Author/AllAuthor/
+    - assets/aboutus/
     - assets/Author/AuthorMonth/
     - assets/Author/AuthorWeek/
     - assets/Author/TopSell/
@@ -98,7 +99,7 @@ flutter:
     - assets/homescreen/book5.jpg
     - assets/homescreen/book_icon.png
     - assets/star/star.png
-    - assets/events_bookImg/harry-potter.jpg
+    - assets/events_bookImg/
     - assets/BestAuthor/BestAuthor.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see

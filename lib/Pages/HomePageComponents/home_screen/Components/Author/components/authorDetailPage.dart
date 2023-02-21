@@ -2,11 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projecttesting/Pages/HomePageComponents/home_screen/Components/Author/components/constants.dart';
 import 'package:projecttesting/model/AllAuthor/AuthorDetail.dart';
-class AuthorDetail extends StatelessWidget {
+import 'package:url_launcher/url_launcher.dart'; 
+
+class AuthorDetail extends StatefulWidget {
 
   final AllAuthor authordetails;
 
   AuthorDetail({required this.authordetails});
+
+  @override
+  State<AuthorDetail> createState() => _AuthorDetailState();
+}
+
+class _AuthorDetailState extends State<AuthorDetail> {
+  final Uri _url = Uri.parse('https://en.wikipedia.org/wiki/Chimamanda_Ngozi_Adichie'); 
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +34,9 @@ class AuthorDetail extends StatelessWidget {
 
           Container(
             child: Hero(
-              tag: authordetails.name,
+              tag: widget.authordetails.name,
               child: Image.asset(
-                authordetails.image,
+                widget.authordetails.image,
                 fit: BoxFit.fitWidth
               ),
             ),
@@ -75,7 +90,7 @@ class AuthorDetail extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [ 
                           Text(
-                            authordetails.name,
+                            widget.authordetails.name,
                             style: GoogleFonts.catamaran(
                               fontSize: 18,
                               color: Colors.grey,
@@ -111,7 +126,7 @@ class AuthorDetail extends StatelessWidget {
                             child: SingleChildScrollView(
                               physics: BouncingScrollPhysics(),
                               child: Text(
-                                authordetails.background,
+                                widget.authordetails.background,
                                 style: GoogleFonts.catamaran(
                                   fontSize: 16,
                                 ),
@@ -155,7 +170,9 @@ class AuthorDetail extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                TextButton(
+                                  onPressed: _launchUrl,
+                                child: Text(
                                   "Read more about author...",
                                   style: GoogleFonts.catamaran(
                                     fontSize: 18,
@@ -163,6 +180,8 @@ class AuthorDetail extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
+                                ),
+                                
                                 SizedBox(
                                   width: 8,
                                 ),
@@ -197,7 +216,7 @@ class AuthorDetail extends StatelessWidget {
                   height: 75,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(authordetails.image), 
+                      image: AssetImage(widget.authordetails.image), 
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -211,3 +230,4 @@ class AuthorDetail extends StatelessWidget {
     );
   }
 }
+
